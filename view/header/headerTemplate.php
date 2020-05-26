@@ -1,7 +1,7 @@
 <header>
 	<div id="bloc_header">
 		<div id="logo">
-			<a href="index.php"><img src="./public/images/rocket-sensor-by-im.png" alt="logo_rocketsensor"></a>
+			<a href="index.php"><img src="../../public/images/rocket-sensor-by-im.png" alt="logo_rocketsensor"></a>
 		</div>
 		<nav id="menu_principal">
 			<ul>
