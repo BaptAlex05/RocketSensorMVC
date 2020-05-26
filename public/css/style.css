@@ -1,0 +1,973 @@
+body {
+	background: #F8F8F8;
+	font-family: 'Roboto';
+	display: flex;
+	flex-direction: column;
+	min-height:100vh;
+	margin: 0;
+}
+
+a {
+	text-decoration: none;
+	font-style: normal;
+	color: #FF544D;
+	cursor: pointer;
+}
+
+h1 {
+	font-size: 2em;
+	color: #272727;
+}
+
+h2 {
+	color: #272727;
+}
+
+p {
+	text-align: justify;
+	color: #272727;
+
+}
+
+.alerte {
+	color: red;
+	text-align: center;
+}
+
+header {
+	position: fixed;
+	height: 63px;
+	left: 0;
+	right: 0;
+	top: 0;
+	background: white;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+header a, footer a {
+	font-style: normal;
+}
+
+#bloc_header {
+	height: 63px;
+	margin: auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 1250px;
+}
+
+#logo {
+	width: 30%;
+}
+
+#logo img{
+	margin-top: 3px;
+	width: auto;
+	height: 60px;
+}
+
+#menu_principal ul, #menu_utilisateur_invite ul, #menu_footer ul {
+	list-style-type: none;
+	display: flex;
+}
+
+#menu_principal li, #menu_utilisateur_invite li , #menu_footer li {
+	margin-right: 15px;
+}
+
+nav a {
+	text-decoration: none;
+}
+
+#page_on {
+	border-bottom: 2px solid #FF544D;
+}
+
+#menu_principal {
+	width: 40%;
+}
+
+#menu_principal a {
+	font-style: normal;
+	font-weight: normal;
+	font-size: 18px;
+	line-height: 21px;
+	color: #272727;
+}
+
+#menu_utilisateur {
+	width: 30%;
+	text-align: right;
+}
+
+
+#menu_utilisateur_invite, .nom {
+	text-transform: uppercase;
+}
+
+#menu_utilisateur_connecte {
+	display: inline-block;
+	cursor: pointer;
+}
+
+.sous_menu_utilisateur {
+	display: none;
+	background-color: white;
+	position: absolute;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	text-align: left;
+}
+
+.sous_menu_utilisateur ul {
+	padding: 0 15px 0 15px;
+
+} 
+
+#menu_utilisateur_connecte:hover .sous_menu_utilisateur {
+	display: block;
+}
+
+#menu_utilisateur_connecte ul {
+	list-style-type: none;
+} 
+
+#menu_utilisateur_connecte li {
+	margin: 10px 0 10px 0;
+}
+
+#menu_utilisateur_connecte a {
+	color: #272727;
+}
+
+#menu_utilisateur_connecte a:hover {
+	color: #FF544D;
+}
+
+#bouton_menu_inscription a {
+	font-weight: 500;
+	font-size: 1em;
+	line-height: 21px;
+	color: #FFFFFF;
+	width: 126px;
+	height: 40px;
+	background: #FF544D;
+	border-radius: 5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#bouton_menu_connexion a {
+	font-weight: 500;
+	font-size: 1em;
+	line-height: 21px;
+	color: #FF544D;
+	width: 155px;
+	height: 40px;
+	border: 2px solid #FF544D;
+	box-sizing: border-box;
+	border-radius: 5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+section {
+	width: 1150px;
+	background: #FFFFFF;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	margin: 100px auto 50px auto;
+	padding: 20px 50px 50px 50px;
+	flex-grow:1;
+}
+
+section h1 {
+	text-align: center;
+}
+
+footer {
+	width: 100%;
+	height: 150px;
+	background: #272727;
+
+}
+
+#bloc_footer {
+	margin: auto;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 1250px;
+	height: 100%;
+}
+
+#copyright p {
+	color: #636363;
+	text-align: center;
+	margin-right: 150px;
+}
+
+#menu_footer {
+	width: 40%;
+}
+
+#menu_footer a {
+	color: #636363;
+}
+
+
+
+#logo_infinite-measures img {
+	width: 130px;
+}
+
+/*Page d'accueil - Paramie*/
+#accueil_welcome {
+	width: 100%;
+	height: 100vh;
+	margin: 63px 0 0 0;
+	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("images/welcome-background.png");
+	background-position: center;
+  	background-repeat: no-repeat;
+  	background-size: cover;
+}
+
+.accueil_wrapper {
+	display: table;
+	width: 100%;
+	height: 100%;
+}
+
+.accueil_content {
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+}
+
+#accueil_welcome h1 {
+	color: white;
+	font-size: 50px;
+}
+
+.accueil_descendre {
+	text-align: center;
+}
+
+.accueil_descendre img:hover {
+	cursor: pointer;
+}
+
+#accueil_section {
+	width: 100%;
+	margin-top: 0;
+	box-sizing: border-box;
+	margin-bottom: 0;
+}
+
+#accueil_section p {
+	text-align: center;
+	font-size: 1.7em;
+	line-height: 1.5;
+}
+
+#accueil_section h2 {
+	font-size: 2.5em;
+	text-align: center;
+}
+
+#accueil_section h3 {
+	font-size: 1.5em;
+	text-align: center;
+}
+
+#accueil_contenu {
+	width: 1150px;
+	margin: auto;
+	margin-top: 50px;
+}
+
+.accueil_presentation, .mentions_legales_bloc {
+	margin-top: 50px;
+	margin-bottom: 50px;
+	padding-bottom: 30px;
+}
+
+.accueil_separation, .mentions_legales_separation {
+	border-bottom: #272727 solid 1px;
+	width: 30%;
+	margin: auto;
+}
+
+#accueil_liens_utiles {
+	margin-top: 50px;
+}
+
+.accueil_image {
+	max-height: 200px;
+	max-width: 400px;
+}
+
+#accueil_liens_utiles {
+	display: flex;
+	justify-content: space-around;
+}
+
+.accueil_lien_utile img {
+	width:150px;
+  	height:auto;
+  	border-radius: 100%;
+}
+
+
+/*Inscription/connexion*/
+
+#head_inscription, #head_connexion {
+	text-align: center;
+}
+
+#head_inscription p, #head_connexion p {
+	text-align: center;
+}
+
+#formulaire_inscription {
+	display: flex;
+	justify-content: space-between;
+	width: 60%;
+	margin: auto;
+}
+
+#formulaire_inscription input, #profil_modifier_formulaire input {
+	width: 300px;
+	height: 30px;
+	border: 1px solid #272727;
+	box-sizing: border-box;
+	border-radius: 5px;
+	padding: 5px 5px 5px 5px;
+	margin-top: 10px;
+}
+
+#datenaissance input {
+	width: 200px;
+}
+
+#formulaire_autoecole, #formulaire_role, select  {
+	width: 300px;
+	height: 30px;
+	border: 1px solid #272727;
+	box-sizing: border-box;
+	border-radius: 5px;
+	padding: 5px 5px 5px 5px;
+	margin-top: 10px;
+	background: white;
+}
+
+textarea {
+	width: 300px;
+	height: 100px;
+	border: 1px solid #272727;
+	box-sizing: border-box;
+	border-radius: 5px;
+	padding: 5px 5px 5px 5px;
+	margin-top: 10px;
+	background: white;
+}
+
+.affichage_autoecole {
+	display: none;
+}
+
+
+#case_cgu, #champ_auto-ecole {
+	text-align: center;
+}
+
+#case_cgu input {
+	margin-right: 10px;
+}
+
+#champ_auto-ecole {
+	margin-bottom: 50px;
+}
+
+.bouton {
+	text-align: center;
+	margin-top: 50px;
+}
+
+.bouton input, .bouton a {
+	text-transform: uppercase;
+	font-weight: bold;
+	font-style: normal;
+	border: none;
+	font-size: 15px;
+	color: #FFFFFF;
+	background: #FF544D;
+	border-radius: 10px;
+	padding: 10px 20px;
+
+}
+
+.bouton input:hover {
+	cursor: pointer;
+}
+
+#deja_inscrit {
+	text-align: center;
+}
+
+.profil_ligne, #profil_modifier_formulaire tr {
+	height: 50px;
+}
+
+
+.champ_profil {
+	font-weight: bold;
+	text-align: right;
+	padding-right: 20px;
+}
+
+
+.role {
+	font-style: italic;
+}
+
+#formulaire_connexion {
+	display: flex;
+	flex-direction:column;
+	align-items:center;
+}
+#formulaire_connexion input {
+	width: 300px;
+	height: 30px;
+	border: 1px solid #272727;
+	box-sizing: border-box;
+	border-radius: 5px;
+	padding: 5px 5px 5px 5px;
+	margin-top: 10px;
+}
+
+
+/* Page liste des tests */
+
+#head_tests p {
+    text-align: center;
+}
+
+#head_tests {
+    margin-bottom: 30px;
+}
+
+table {
+    border-collapse: collapse;
+    margin: auto;
+}
+
+#tableau_liste th {
+    height: 30px;
+    text-align: justify;
+    color: white;
+    background-color: #FF544D;
+}
+
+#tableau_liste td {
+    height: 50px;
+    /*width: 38%;*/
+}
+
+.couleur1_tab {
+    background-color : #E5E5E5;
+}
+
+.couleur2_tab {
+    background-color : #F8F8F8;
+}
+
+.couleur1_tab:hover, .couleur2_tab:hover{
+	cursor: pointer;
+}
+
+.tests_colonne1 {
+    width : 28%;
+    padding: 0 10px 0 10px;
+}
+
+.tests_colonne2 {
+    width : 50%;
+    padding: 0 10px 0 10px;
+}
+
+.tests_colonne3 {
+    width : 12%;
+    padding: 0 10px 0 30px;
+}
+
+.tests_colonne4 {
+    width : 10%;
+    padding: 0 10px 0 10px;
+}
+
+td a {
+    color: #272727;
+    font-style: normal;
+}
+
+td a:hover{
+    color: #FF544D;
+}
+
+
+#formulaire_contact {
+	display: flex;
+	justify-content: space-between;
+	width: 60%;
+	margin: auto;
+}
+
+#formulaire_contact input {
+	width: 300px;
+	height: 30px;
+	border: 1px solid #272727;
+	box-sizing: border-box;
+	border-radius: 5px;
+	padding: 5px 5px 5px 5px;
+	margin-top: 10px;
+}
+
+#formulaire_contact1 {
+	display: flex;
+	justify-content: space-between;
+	width: 60%;
+	margin: auto;
+}
+
+#formulaire_contact1 textarea  {
+	width: 700px;
+	height: 300px;
+	border: 1px solid #272727;
+	box-sizing: border-box;
+	border-radius: 5px;
+	padding: 5px 5px 5px 5px;
+	margin-top: 10px;
+	resize: none;
+}
+#bien_inscrit{
+	font-size: 30px;
+	position:relative;
+	top:110px;
+	text-align:center;
+}
+
+/*liste des utilisateurs*/
+
+#head_utilisateurs {
+	margin-bottom: 30px;
+}
+
+#head_utilisateurs p {
+	text-align: center;
+}
+
+.champ{
+	
+	background: url('images/loupe.png') no-repeat;
+	background-size: 25px 25px;
+	background-position: relative;
+	color: black;
+	text-align: left;
+	padding-left: 10px;
+	width: 300px;
+	height: 33px;
+	border: 1px solid black;
+    border-radius: 10px;
+}
+.utilisateurs_colonne1 {
+	height: 30px;
+	text-align: justify;
+	color: white;
+	background-color: #FF544D;
+    width : 150px;
+    padding: 0 10px 0 10px;
+}
+
+.utilisateurs_colonne2 {
+	height: 30px;
+	text-align: justify;
+	color: white;
+	background-color: #FF544D;
+	width : 300px;
+    padding: 0 10px 0 10px;
+}
+
+.utilisateurs_colonne_boucle1 {
+	height: 30px;
+	text-align: justify;
+	color: black;
+	background-color: #E5E5E5;
+    padding: 0 10px 0 10px;
+}
+.utilisateurs_colonne_boucle2 {
+	height: 30px;
+	text-align: justify;
+	color: black;
+	background-color: #F8F8F8;
+    padding: 0 10px 0 10px;
+}
+
+#utilisateur_boutons {
+	margin: auto;
+	width: 70%;
+	display: flex;
+	justify-content: space-around;
+}
+
+/*Liste auto-école*/
+
+.autoecole_colonne1 {
+	height: 30px;
+	text-align: justify;
+	color: white;
+	background-color: #FF544D;
+    width : 300px;
+    padding: 0 10px 0 10px;
+}
+.autoecole_colonne2 {
+	height: 30px;
+	text-align: justify;
+	color: white;
+	background-color: #FF544D;
+    width : 150px;
+    padding: 0 10px 0 10px;
+}
+.autoecole_colonne_boucle1 {
+	height: 30px;
+	text-align: justify;
+	color: black;
+	background-color: #E5E5E5;
+    padding: 0 10px 0 10px;
+}
+.autoecole_colonne_boucle2 {
+	height: 30px;
+	text-align: justify;
+	color: black;
+	background-color: #F8F8F8;
+	padding: 0 10px 0 10px;
+}
+
+/*FAQ*/
+
+.faq_post, .faq_admin_post {
+	width: 80%;
+	margin: 20px auto 20px auto;
+}
+
+.faq_post div, .faq_admin_post div {
+	padding: 15px 30px 15px 30px;
+}
+
+.faq_admin_post {
+	display: flex;
+}
+
+.faq_question, .faq_admin_question {
+	background: #E5E5E5;
+}
+
+.faq_reponse, .faq_admin_boutons {
+	background: #F7F7F7;
+}
+
+.faq_boutons {
+	display: flex;
+}
+
+.faq_boutons p {
+	margin-right: 30px;
+	margin-top: 5px;
+}
+
+.faq_admin_boutons {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	height: 50px;
+	width: 50%;
+}
+
+.faq_admin_boutons div {
+	padding: 0;
+	margin: 0;
+}
+
+.faq_ajouter {
+	margin: auto;
+	width: 75%;
+}
+
+.faq_ajouter p {
+	line-height: 1.5em;
+	margin-bottom: 50px;
+}
+
+.faq_ajouter textarea {
+	width: 75%;
+	height: 150px;
+	display: block;
+	margin: auto;
+	margin-top: 10px;
+}
+
+.faq_ajouter label {
+	margin-left: 12.5%;
+}
+
+.faq_admin_question {
+	width: 50%;
+}
+
+#faq_connectez-vous {
+	text-align: center;
+}
+
+/* Mentions légales */
+#mentions_legales_section h2 {
+	font-size: 2em;
+	text-align: center;
+}
+
+#mentions_legales_section p {
+	font-size: 1em;
+	text-align: center;
+}
+
+.accueil_presentation, .mentions_legales_bloc {
+	margin-top: 25px;
+	margin-bottom: 25px;
+	padding-bottom: 15px;
+}
+
+.mentions_legales_logo {
+	text-align: center;
+}
+
+.mentions_legales_logo img {
+	max-width: 400px;
+	max-height: 200px;
+}
+
+
+/* Page affichage d'un test */
+.affichage_test{
+	margin-left: 20%;
+	margin-right: 20%;
+}
+
+/* Passage d'un test, affichage du score */
+
+#test_score p {
+	text-align: center;
+}
+
+
+/* Page affichage résultats des tests */
+
+#resultats_titre {
+	text-align: center;
+	margin-top: 30px;
+}
+
+.resultats_couleur1 {
+    background-color : #E5E5E5;
+}
+
+.resultats_couleur2 {
+    background-color : #F8F8F8;
+}
+
+.resultats_colonne1 {
+    width : 150px;
+    padding: 0 10px 0 10px;
+}
+
+.resultats_colonne2 {
+    width : 100px;
+    padding: 0 10px 0 10px;
+}
+
+#resultats_tableau {
+    border-collapse: collapse;
+    text-align: center;
+    margin-top: 50px;
+}
+
+#resultats_tableau th {
+    height: 30px;
+    text-align: justify;
+    color: white;
+    background-color: #FF544D;
+    padding-left: 9px;
+}
+
+#resultats_tableau td {
+    height: 50px;
+}
+
+#resultats_tableau_scores {
+	text-align: left;
+}
+
+#graph1 {
+	padding-left: 50px;
+	height: 300px;
+}
+
+/* Réinitialisation mot de passe */
+
+#formulaire_recuperation {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.barre_recuperation {
+	text-align: center;
+}
+.motdepasse_recuperation {
+	width: 300px;
+	height: 30px;
+	border: 1px solid #272727;
+	box-sizing: border-box;
+	border-radius: 5px;
+	padding: 5px 5px 5px 5px;
+	margin-top: 10px;
+}
+
+
+
+
+#head_contact{
+	text-align: center;
+}
+
+#head_contact p {
+	text-align: center;
+}
+
+
+
+/*MESSAGERIE*/
+.messagerie_admin_post {
+	width: 90%;
+	margin: 10px auto 10px auto;
+}
+
+.messagerie_admin_post div {
+	padding: 15px 30px 15px 30px;
+}
+
+.messagerie_admin_post {
+	display: flex;
+}
+
+.messagerie_question, .messagerie_admin_question {
+	background: #E5E5E5;
+}
+
+.messagerie_admin_boutons {
+	background: #F7F7F7;
+
+}
+
+.messagerie_admin_boutons {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	
+	width: 50%;
+}
+
+.messagerie_admin_boutons div {
+	padding: 0;
+	margin: 0;
+}
+
+.messagerie_admin_question {
+	width: 80%;
+}
+
+.messagerie_admin_nom_prenom,.messagerie_admin_mail{
+	font-weight: bold;
+}
+
+.messages_admin_nom_prenom_message{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.messagerie_admin_nom_prenom p span{
+	text-transform: uppercase;
+}
+
+
+.messagerie_ajouter {
+	margin: auto;
+	width: 75%;
+}
+
+.messagerie_ajouter p {
+	line-height: 1.5em;
+	margin-bottom: 50px;
+}
+
+.messagerie_ajouter textarea {
+	width: 75%;
+	height: 150px;
+	display: block;
+	margin: auto;
+	margin-top: 10px;
+}
+
+.messagerie_ajouter label {
+	margin-left: 12.5%;
+}
+
+
+.messagerie_admin_message_reponse {
+	width: 57%;
+	margin: 10px auto 10px auto;
+	border-radius: 10px
+
+}
+
+.messagerie_admin_message_reponse div {
+	padding: 15px 30px 15px 30px;
+}
+
+
+.messagerie_admin_message_reponse {
+
+	background: #E5E5E5;
+}
+
+
+.messagerie_admin_nom_prenom_reponse,.messagerie_admin_mail_reponse{
+font-weight: bold;
+}
+
+.messages_admin_nom_prenom_message_reponse{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.messagerie_admin_nom_prenom_reponse p span{
+	text-transform: uppercase;
+}
+
+.messagerie_reponse_bouton{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	width: 100%;
+}
+
