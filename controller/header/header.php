@@ -1,5 +1,5 @@
 <?php
-	function getHeader() {
+	function getHeader($page_on) {
 		if (isset($_SESSION['id'])) { 
 			if ($_SESSION['role'] == 'Élève') {
 				require('../../view/header/headerEleve.php');
