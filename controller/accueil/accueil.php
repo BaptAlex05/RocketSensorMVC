@@ -18,6 +18,5 @@
 	}
 
 	else {
-		require('../../view/accueil/accueilInvite.php');
-		
+		require('../../view/accueil/accueilInvite.php');	
 	}

@@ -9,7 +9,7 @@
 	</head>
 
 	<body>
-		<?= $sontent ?>
+		<?= $content ?>
 
 		<?php require('footer/footer.php'); ?>
 	</body>
