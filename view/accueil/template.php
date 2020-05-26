@@ -29,7 +29,6 @@
 					<div id="logo_infinite-measures">
 						<img src="../../public/images/infinite-measures.png" alt="logo_infinite-measures">
 					</div>
-
 				</div>
 			</footer>
 		</div>
