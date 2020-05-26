@@ -9,6 +9,13 @@
 	</head>
 
 	<body>
+		<div id="header">
+			<?php 
+				require("../../controller/header/header.php"); 
+				getHeader();
+			?>	
+		</div>
+
 		<?= $content ?>
 
 		<div id="footer">
