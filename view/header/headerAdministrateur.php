@@ -15,4 +15,4 @@
 	</div>
 <?php $menu_utilisateur = ob_get_clean(); ?>
 
-<?php require('headerTemplate.php'); ?>
+<?php require("headerTemplate.php"); ?>

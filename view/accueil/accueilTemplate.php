@@ -10,7 +10,7 @@
 		<div class="accueil_wrapper">
 			<div class="accueil_content">
 				<h1>Bienvenue</h1>
-				<p class="accueil_descendre"><img onclick="location.href='#accueil_section';" src="../../public/images/down-arrow.png"></p>
+				<p class="accueil_descendre"><img onclick="location.href='#accueil_section';" src="/RocketSensorMVC/public/images/down-arrow.png"></p>
 			</div>
 		</div>
 	</div>
@@ -19,7 +19,7 @@
 		<div id="accueil_contenu">
 
 			<div class="accueil_presentation">
-				<p><img src="../../public/images/bamboo.png" class="accueil_image"></p>
+				<p><img src="/RocketSensorMVC/public/images/bamboo.png" class="accueil_image"></p>
 				<h2>Qui sommes nous ?</h2>
 				<p><em>Bamboo</em> est une start-up composée de 5 personnes ambitieuses et dynamiques. Nous sommes heureux de vous proposer <strong>Rocket Sensor</strong> : un système de mesures psychotechniques permettant d’évaluer certaines aptitudes nécessaires à la conduite routière.</p>
 			</div>
@@ -28,7 +28,7 @@
 			</div>
 
 			<div class="accueil_presentation">
-				<p><img src="../../public/images/rocket-sensor.png" class='accueil_image'></p>
+				<p><img src="/RocketSensorMVC/public/images/rocket-sensor.png" class='accueil_image'></p>
 				<h2>Un produit innovant : Rocket Sensor</h2>
 				<p>Dans le besoin de s’assurer que les futurs conducteurs sont parfaitement en alerte et prêts à réagir en toute circonstance, nous avons conçu <strong>Rocket Sensor</strong>. Cette solution innovante  permet de moderniser les tests psychotechniques et ainsi garantir la sécurité de tous.</p>
 			</div>
@@ -37,7 +37,7 @@
 			</div>
 
 			<div class="accueil_presentation">
-				<p><img src="../../public/images/infinite-measures.png" class='accueil_image'></p>
+				<p><img src="/RocketSensorMVC/public/images/infinite-measures.png" class='accueil_image'></p>
 				<h2>Infinite Measures</h2>
 				<p>La société <em>Infinite Measures</em> a lancé un appel d'offre auquel la start-up <em>Bamboo</em> a répondu en développant la solution <stron>Rocket Sensor</stron>. <strong>Rocket Sensor</strong> est donc sa propriété et tous les droits lui sont réservés.</p>
 			</div>
@@ -53,14 +53,14 @@
 
 					<div class="accueil_lien_utile">
 						<a href="faq.php">
-							<p><img src="../../public/images/faq.png"></p>
+							<p><img src="/RocketSensorMVC/public/images/faq.png"></p>
 							<h3>FAQ</h3>
 						</a>
 					</div>
 
 					<div class="accueil_lien_utile">
 						<a href="contact.php">
-							<p><img src="../../public/images/contact.png"></p>
+							<p><img src="/RocketSensorMVC/public/images/contact.png"></p>
 							<h3>Nous contacter</h3>
 						</a>
 					</div>
@@ -71,4 +71,4 @@
 
 <?php $content = ob_get_clean(); ?>
 
-<?php require('../../view/template.php'); ?>
+<?php require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/template.php"); ?>

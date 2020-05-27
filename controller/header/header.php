@@ -2,19 +2,19 @@
 	function getHeader($page_on) {
 		if (isset($_SESSION['id'])) { 
 			if ($_SESSION['role'] == 'Élève') {
-				require('../../view/header/headerEleve.php');
+				require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/header/headerEleve.php");
 			}
 
 			elseif ($_SESSION['role'] == 'Moniteur') {
-				require('../../view/header/headerMoniteur.php');
+				require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/header/headerMoniteur.php");
 			}
 
 			elseif($_SESSION['role'] == 'Administrateur') {
-				require('../../view/header/headerAdministrateur.php');
+				require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/header/headerAdministrateur.php");
 			}
 		}
 
 		else {
-			require('../../view/header/headerInvite.php');
+			require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/header/headerInvite.php");
 		}
 	}

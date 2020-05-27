@@ -3,14 +3,14 @@
 
 	if (isset($_SESSION['id'])) {
 		if ($_SESSION['role'] == 'Élève') {
-			require('../../view/accueil/accueilEleve.php');
+			require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/accueil/accueilEleve.php");
 		}
 
 		else {
-			require('../../view/accueil/accueilConnecte.php');
+			require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/accueil/accueilConnecte.php");
 		}
 	}
 
 	else {
-		require('../../view/accueil/accueilInvite.php');	
+		require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/accueil/accueilInvite.php");	
 	}
