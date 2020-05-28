@@ -2,23 +2,38 @@
 
 	require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/model/inscriptionModel.php");
 
-	if (isset($_GET['page']) && $_GET['page'] == "traitement") {
-		formTraitement();
+	if (isset($_GET['page'])) {
+		if ($_GET['page'] == "traitement") {
+			formTraitement();
+		}
+
+		elseif ($_GET['page'] == "activation") {
+			inscriptionActivation();
+		}
+
+		else {
+			getInscriptionForm();
+		}
 	}
 
 	else {
 		getInscriptionForm();
 	}
 
-	function getInscriptionForm() { 
-	
+	function getInscriptionForm() { 	
 		if (isset($_GET['action'])) {
 			if ($_GET['action'] == 1) {
-				require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/inscription/inscriptionFormAlerte_1.php");
+				$alerte = "Il semblerait qu'un utilisateur soit déjà enregistré avec ces informations. Merci de saisir des informations valides.";
+				require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/inscription/inscriptionForm.php");
 			}
 
 			elseif ($_GET['action'] == 2) {
-				require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/inscription/inscriptionFormAlerte_2.php");
+				$alerte = "Les deux mots de passe saisis ne semblent pas correspondre. Merci de réessayer.";
+				require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/inscription/inscriptionForm.php");
+			}
+
+			else {
+				require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/inscription/inscriptionForm.php");	
 			}
 		}
 
@@ -41,11 +56,11 @@
 		}
 
 		else {
-			header("Location: /RocketSensorMVC/controller/inscription/inscription.php?action=2");
+			header("Location: /RocketSensorMVC/controller/inscription.php?action=2");
 		}
 
 		if (checkEmail($mail)) {
-			header("Location: /RocketSensorMVC/controller/inscription/inscription.php?action=1");
+			header("Location: /RocketSensorMVC/controller/inscription.php?action=1");
 		}
 
 		$cle = md5(microtime(TRUE)*100000);
@@ -63,7 +78,7 @@
  
 		Pour activer votre compte, veuillez entrer le lien ci-dessous dans votre navigateur.
  
-	    localhost/Rocket-Sensor/inscription_activation.php?&mail='.urlencode($mail).'&cle='.urlencode($cle).'
+	    localhost/RocketSensorMVC/controller/inscription.php?page=activation&mail=".urlencode($mail)."&cle=".urlencode($cle)."
 
 		---------------
 		Ceci est un mail automatique. Merci de ne pas y répondre.";
@@ -80,4 +95,29 @@
 		);
 		$context  = stream_context_create($options);
 		$result = file_get_contents($url, false, $context);
+	}
+
+	function inscriptionActivation() {
+		if (isset($_GET['mail']) && isset($_GET['cle'])) {
+			if (getActif($_GET['mail']) == 1) {
+				require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/inscription/inscriptionActif.php");
+			}
+
+			else {
+				$cle = getCle($_GET['mail']);
+
+				if ($_GET['cle'] == $cle) {
+					activateUser($_GET['mail']);
+					require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/inscription/inscriptionActivation.php");
+				}
+
+				else {
+					require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/inscription/inscriptionActivationErreur.php");
+				}
+			}
+		}
+
+		else {
+			require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/inscription/inscriptionActivationErreur.php");
+		}
 	}

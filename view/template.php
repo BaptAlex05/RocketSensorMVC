@@ -11,7 +11,7 @@
 	<body>
 		<div id="header">
 			<?php 
-				require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/controller/header/header.php"); 
+				require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/controller/header.php"); 
 				getHeader($page_on);
 			?>	
 		</div>

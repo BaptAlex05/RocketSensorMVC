@@ -2,14 +2,14 @@
 
 	<div class="accueil_lien_utile">
 		<a href="profil.php">
-			<p><img src="../../public/images/profil.png"></p>
+			<p><img src="/RocketSensorMVC/public/images/profil.png"></p>
 			<h3>Profil</h3>
 		</a>
 	</div>
 
 	<div class="accueil_lien_utile">
 		<a href="tests.php">
-			<p><img src="../../public/images/tests.png"></p>
+			<p><img src="/RocketSensorMVC/public/images/tests.png"></p>
 			<h3>Mes tests</h3>
 		</a>
 	</div>

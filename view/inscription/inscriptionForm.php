@@ -10,9 +10,11 @@
 			<p>Veuillez remplir le formulaire ci-dessous pour vous inscrire</p>
 		</div>
 
-		<?php if (isset($alerte)) { echo $alerte; } ?>
+		<?php if (isset($alerte)) { ?>
+			<p class="alerte"><?= $alerte ?></p>
+		<?php } ?>
 
-		<form method="post" action="/RocketSensorMVC/controller/inscription/inscription.php?page=traitement" id="inscription">
+		<form method="post" action="/RocketSensorMVC/controller/inscription.php?page=traitement" id="inscription">
 			<div id="formulaire_inscription">
 				<div id="inscription_colonne_1">
 					 <p>
@@ -76,4 +78,4 @@
 
 <?php $content = ob_get_clean(); ?>
 
-<?php require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/template.php"); ?>@
+<?php require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/template.php"); ?>
