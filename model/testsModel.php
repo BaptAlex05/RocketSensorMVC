@@ -10,10 +10,19 @@
 		return $req;
 	}
 
+	function getTestsAdmin(){
+		$reponse = $bdd->query('SELECT id, nom, description FROM liste_des_tests ORDER BY id LIMIT 0,20');
+	}
 
 	function getTest($id_test){
+		$bdd = dbConnect();
 		$req = $bdd->prepare('SELECT nom, description, capteur, duree, deroulement FROM liste_des_tests WHERE id = ?');
 		$req->execute(array($id_test));
-		$donnees=$req->fetch();
+
+		$donnees = $req->fetch();
+
+		return $donnees;
 	}
+
+
 
