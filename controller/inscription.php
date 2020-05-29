@@ -56,7 +56,11 @@
 		$mail = htmlspecialchars($_POST['mail']);
 		$motdepasse = htmlspecialchars($_POST['motdepasse']);
 		$motdepasse_bis = htmlspecialchars($_POST['motdepasse_bis']);
-		$autoecole = htmlspecialchars($_POST['autoecole']);
+
+
+		if ($_POST['autoecole'] == "-") {
+			$autoecole = NULL;
+		}
 
 		if ($motdepasse == $motdepasse_bis) {
 			$motdepasse_hash = password_hash($motdepasse,PASSWORD_DEFAULT);
