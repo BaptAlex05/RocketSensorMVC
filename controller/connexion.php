@@ -9,10 +9,6 @@
 				connexionFormTraitement();
 			}
 
-			elseif ($_GET['page'] == "deconnexion") {
-				deconnexion();
-			}
-
 			else {
 				getConnexionForm();
 			}
@@ -24,7 +20,14 @@
 	}
 
 	else {
-		header("Location: /RocketSensorMVC/index.php");
+
+		if (isset($_GET['page']) && $_GET['page'] == "deconnexion") {
+				deconnexion();
+		}
+
+		else {
+			header("Location: /RocketSensorMVC/index.php");
+		}
 	}
 
 	function getConnexionForm() {
@@ -100,7 +103,6 @@
 	}
 
 	function deconnexion() {
-		session_start();
 		$_SESSION = array();
 		session_destroy();
 

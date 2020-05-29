@@ -56,7 +56,7 @@
 			<p id="champ_auto-ecole">
 				<label for="autoecole">Auto-école (Facultatif)</label><br/>
 				<select name="autoecole" id="formulaire_autoecole" required>
-					<option value="NULL" selected> - </option>
+					<option value="null" selected> - </option>
 	          		<option value="1">Id 1</option>
 	          		<option value="2">Id 2</option>
 	          		<option value="3">Id 3</option>

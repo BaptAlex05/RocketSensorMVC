@@ -70,13 +70,16 @@
 			header("Location: /RocketSensorMVC/controller/inscription.php?action=1");
 		}
 
-		$cle = md5(microtime(TRUE)*100000);
+		else {
 
-		addUser($nom, $prenom, $mail, $datenaissance, $motdepasse_hash, $autoecole, $cle);
+			$cle = md5(microtime(TRUE)*100000);
 
-		sendConfirmationEmail($mail, $cle);
+			addUser($nom, $prenom, $mail, $datenaissance, $motdepasse_hash, $autoecole, $cle);
 
-		require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/inscription/inscriptionConfirmation.php");
+			sendConfirmationEmail($mail, $cle);
+
+			require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/inscription/inscriptionConfirmation.php");
+		}
 	}
 
 	function sendConfirmationEmail($mail, $cle) {
