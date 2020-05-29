@@ -6,7 +6,7 @@
 	if (!isset($_SESSION['id'])) {
 		if (isset($_GET['page'])) {
 			if ($_GET['page'] == "traitement") {
-				formTraitement();
+				inscriptionFormTraitement();
 			}
 
 			elseif ($_GET['page'] == "activation") {
@@ -49,7 +49,7 @@
 		}	
 	}
 
-	function formTraitement() {
+	function inscriptionFormTraitement() {
 		$nom = strtoupper(htmlspecialchars($_POST['nom']));
 		$prenom = htmlspecialchars($_POST['prenom']);
 		$datenaissance = htmlspecialchars($_POST["datenaissance"]);
