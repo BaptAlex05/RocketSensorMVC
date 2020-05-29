@@ -4,12 +4,14 @@
 	require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/model/testsModel.php");
 
 
-	getListeTests();
+	listeTests();
 
 
 
-	function getListeTests(){
+	function listeTests(){
 		$tests = getTests($_SESSION['id']);
 		require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/tests/testsListe.php");
 	}
+
+
 
