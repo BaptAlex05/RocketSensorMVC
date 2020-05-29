@@ -1,14 +1,21 @@
 <?php
+	session_start();
 
 	require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/model/inscriptionModel.php");
 
-	if (isset($_GET['page'])) {
-		if ($_GET['page'] == "traitement") {
-			formTraitement();
-		}
+	if (!isset($_SESSION['id'])) {
+		if (isset($_GET['page'])) {
+			if ($_GET['page'] == "traitement") {
+				formTraitement();
+			}
 
-		elseif ($_GET['page'] == "activation") {
-			inscriptionActivation();
+			elseif ($_GET['page'] == "activation") {
+				inscriptionActivation();
+			}
+
+			else {
+				getInscriptionForm();
+			}
 		}
 
 		else {
@@ -17,7 +24,7 @@
 	}
 
 	else {
-		getInscriptionForm();
+		header("Location: /RocketSensorMVC/index.php");
 	}
 
 	function getInscriptionForm() { 	

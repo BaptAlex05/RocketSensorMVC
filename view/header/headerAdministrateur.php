@@ -9,7 +9,7 @@
 				<li><a href="tests_admin.php">Gestion des tests</a></li>
 				<li><a href="faq_admin.php">Gérer la FAQ</a></li>
 				<li><a href="messagerie.php">Messagerie</a></li>
-				<li><a href="deconnexion.php">Se déconnecter</a></li>
+				<li><a href="/RocketSensorMVC/controller/connexion.php?page=deconnexion">Se déconnecter</a></li>
 			</ul>
 		</div>
 	</div>

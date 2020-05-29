@@ -5,7 +5,7 @@
 			<ul>
 				<li><a href="profil.php">Mon profil</a></li>
 				<li><a href="utilisateurs.php">Liste des utilisateurs</a></li>
-				<li><a href="deconnexion.php">Se déconnecter</a></li>
+				<li><a href="/RocketSensorMVC/controller/connexion.php?page=deconnexion">Se déconnecter</a></li>
 			</ul>
 		</div>
 	</div>
