@@ -12,6 +12,8 @@
 
 
 	function getTest(){
-
+		$req = $bdd->prepare('SELECT nom, description, capteur, duree, deroulement FROM liste_des_tests WHERE id = ?');
+		$req->execute(array($_GET['id']));
+		$donnees=$req->fetch();
 	}
 
