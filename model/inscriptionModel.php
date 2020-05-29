@@ -7,13 +7,7 @@
 		$req->execute(array($mail));
 		$resultat = $req->fetch();
 
-		if ($resultat) {
-			return true;
-		}
-
-		else {
-			return false;
-		}
+		return $resultat;
 	}
 
 	function addUser($nom, $prenom, $mail, $datenaissance, $motdepasse, $autoecole, $cle) {
