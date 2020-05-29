@@ -1,4 +1,4 @@
-<?php session_start();
+<?php
 
 	require("dbConnect.php");
 
@@ -10,4 +10,3 @@
 		return $req;
 	}
 
-?>

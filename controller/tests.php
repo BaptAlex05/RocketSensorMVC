@@ -13,4 +13,3 @@
 		require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/tests/testsListe.php");
 	}
 
-?>
