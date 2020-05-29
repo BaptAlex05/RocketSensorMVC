@@ -14,12 +14,12 @@
 			}
 
 			else {
-				getInscriptionForm();
+				inscriptionForm();
 			}
 		}
 
 		else {
-			getInscriptionForm();
+			inscriptionForm();
 		}
 	}
 
@@ -27,7 +27,7 @@
 		header("Location: /RocketSensorMVC/index.php");
 	}
 
-	function getInscriptionForm() { 	
+	function inscriptionForm() { 	
 		if (isset($_GET['action'])) {
 			if ($_GET['action'] == 1) {
 				$alerte = "Il semblerait qu'un utilisateur soit déjà enregistré avec ces informations. Merci de saisir des informations valides.";

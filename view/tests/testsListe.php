@@ -36,7 +36,7 @@
                 </tr>
                 </a>
           
-          <?php } else{ ?>
+          <?php } else { ?>
 
                 <a href ="test.php?id=<?= $test['id_test']; ?>">
                 <tr class="couleur2_tab" onclick="document.location='test.php?id=<?= $test['id_test']; ?>';">

@@ -10,12 +10,12 @@
 			}
 
 			else {
-				getConnexionForm();
+				connexionForm();
 			}
 		}
 
 		else {
-			getConnexionForm();
+			connexionForm();
 		}
 	}
 
@@ -30,7 +30,7 @@
 		}
 	}
 
-	function getConnexionForm() {
+	function connexionForm() {
 		if (isset($_GET['action'])) {
 			if ($_GET['action'] == 1) {
 				$alerte = "Mauvais identifiant ou mot de passe ! Veuillez réessayer";

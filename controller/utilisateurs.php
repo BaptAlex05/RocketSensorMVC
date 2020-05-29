@@ -4,14 +4,14 @@
 	require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/model/utilisateursModel.php");
 
 	if (isset($_SESSION['id'])) {
-		getProfil();
+		profil();
 	}
 
 	else {
 		header("Location: /RocketSensorMVC/controller/connexion.php");
 	}
 
-	function getProfil() {
+	function profil() {
 		$utilisateur = getUser($_SESSION['id']);
 
 		if ($_SESSION['role'] == 'Élève' || $_SESSION['role'] == 'Moniteur') {
