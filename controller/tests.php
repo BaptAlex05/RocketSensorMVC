@@ -20,7 +20,22 @@
 
 	function listeTests(){
 		$tests = getTests($_SESSION['id']);
-		require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/tests/testsListe.php");
+
+		if (isset($_GET['action'])) {
+			if ($_GET['action'] == 1) {
+				$alerte = "Une erreur est survenue. Veuillez réessayer.";
+				require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/tests/testsListe.php");
+			}
+
+			else {
+				require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/tests/testsListe.php");
+			}
+		}
+
+		else {
+			require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/tests/testsListe.php");
+		}
+
 	}
 
 	function listeTestsAdmin(){
@@ -55,9 +70,24 @@
 	}
 
 
-	function test(){
-		$test = getTest($_GET['id']);
-		require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/tests/testDescription.php");
+	function test() {
+		if (isset($_GET['id'])) {
+			$test = getTest($_GET['id']);
+			
+			if ($_SESSION['role'] == 'Élève') {
+				require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/tests/testDescriptionEleve.php");
+			}
+
+			else {
+				require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/tests/testDescription.php");
+			}
+		}
+
+		else {
+			header("Location: /RocketSensorMVC/controller/tests.php?action=1");
+		}
+
+		//EVENTUELLEMENT VERIFIER QUE LE TEST EXISTE BIEN DANS LA BDD
 	}
 
 

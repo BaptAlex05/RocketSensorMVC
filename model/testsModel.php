@@ -16,12 +16,11 @@
 
 	function getTest($id_test){
 		$bdd = dbConnect();
-		$req = $bdd->prepare('SELECT nom, description, capteur, duree, deroulement FROM liste_des_tests WHERE id = ?');
+		$req = $bdd->prepare('SELECT nom, description, capteur, duree, deroulement FROM tests WHERE id = ?');
 		$req->execute(array($id_test));
+		$test = $req->fetch();
 
-		$donnees = $req->fetch();
-
-		return $donnees;
+		return $test;
 	}
 
 

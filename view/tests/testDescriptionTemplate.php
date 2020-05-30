@@ -1,5 +1,5 @@
 <?php
-	$title = "Test"; 
+	$title = $test['nom']; 
 	$page_on = 'test';
 ?>
 
@@ -8,35 +8,31 @@
 	<section>
 
     <div id="head_tests">
-      <h1><?php echo $donnees['nom']; ?></h1>
+      <h1><?= $test['nom'] ?></h1>
     </div>
 
     <p>
       <table class="affichage_test">
           <tr>
               <td class="champ_profil">Description</td>
-              <td class="profil_ligne"><?= $donnees['description']; ?></span></td>
+              <td class="profil_ligne"><?= $test['description'] ?></span></td>
           </tr>
           <tr>
               <td class="champ_profil">Capteur</td>
-              <td class="profil_ligne"><?= $donnees['capteur']; ?></td>
+              <td class="profil_ligne"><?= $test['capteur'] ?></td>
           </tr>
           <tr>
               <td class="champ_profil">Durée</td>
-              <td class="profil_ligne"><?= $donnees['duree']; ?> minutes</td>
+              <td class="profil_ligne"><?= $test['duree'] ?> minutes</td>
           </tr>
           <tr>
               <td class="champ_profil">Déroulement</td>
-              <td class="profil_ligne"><?= $donnees['deroulement']; ?></span></td>
+              <td class="profil_ligne"><?= $test['deroulement'] ?></span></td>
           </tr>
       </table>
     </p>
 
-    <?php if (isset($_SESSION['id']) && $_SESSION['role'] == 'Élève') { ?>
-      <div class="bouton">
-        <a href = "test_post.php?id_test=<?= $_GET['id']; ?>">Commencer</a>
-      </div>
-    <?php } ?>
+    <?php if (isset($bouton_commencer)) { echo $bouton_commencer; } ?>
 
   </section>
 

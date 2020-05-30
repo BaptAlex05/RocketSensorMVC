@@ -11,6 +11,10 @@
           <p>Retrouvez la liste des tests disponibles ainsi que votre progression</p>
         </div>
 
+        <?php if (isset($alerte)) { ?>
+          <p class="alerte"><?= $alerte ?></p>
+        <?php } ?>
+
         <table id="tableau_liste">
           <tr>
               <th class="tests_colonne1"> Test </th>
