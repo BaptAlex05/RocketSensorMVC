@@ -38,7 +38,7 @@
 
 	}
 
-	function listeTestsAdmin(){
+	function listeTestsAdmin() {
 		$tests = getTests();
 
 		//Messages de confirmation après ajout, edition, suppression d'un test
