@@ -27,59 +27,37 @@
             $compteur=0;
 
             // On affiche chaque entrée une à une
-            while ($donnees = $reponse->fetch())
-            {
+            while ($test = $tests->fetch()) {
               if ($compteur%2==0){
           ?>
 
-                <a href ="test.php?id=<?= $donnees['id']; ?>">
-                <tr class="couleur1_tab" onclick="document.location='test.php?id=<?= $donnees['id']; ?>';">
-                    <td class="tests_colonne1"><a href ="test.php?id=<?= $donnees['id']; ?>"><?php echo $donnees['nom'] ?></a></td>
-                    <td class="tests_colonne2"><?php echo $donnees['description'] ?></td>
+                <a href ="/RocketSensorMVC/controller/tests.php?page=test&id=<?= $test['id']; ?>">
+                <tr class="couleur1_tab" onclick="document.location='/RocketSensorMVC/controller/tests.php?page=test&id=<?= $test['id']; ?>';">
+                    <td class="tests_colonne1"><a href ="/RocketSensorMVC/controller/tests.php?page=test&id=<?= $test['id']; ?>"><?= $test['nom'] ?></a></td>
+                    <td class="tests_colonne2"><?= $test['description'] ?></td>
                 </tr>
                 </a>
           
-          <?php 
-              }
-              else{
-          ?>
+          <?php } else { ?>
 
-                <a href ="test.php?id=<?= $donnees['id']; ?>">
-                <tr class="couleur2_tab" onclick="document.location='test.php?id=<?= $donnees['id']; ?>';">
-                    <td class="tests_colonne1"> <a href ="test.php?id=<?= $donnees['id']; ?>"><?php echo $donnees['nom'] ?> </a> </td>
-                    <td class="tests_colonne2"> <?php echo $donnees['description'] ?> </td>
+                <a href ="/RocketSensorMVC/controller/tests.php?page=test&id=<?= $test['id']; ?>">
+                <tr class="couleur2_tab" onclick="document.location='/RocketSensorMVC/controller/tests.php?page=test&id=<?= $test['id']; ?>';">
+                    <td class="tests_colonne1"> <a href ="/RocketSensorMVC/controller/tests.php?page=test&id=<?= $test['id']; ?>"><?= $test['nom'] ?> </a> </td>
+                    <td class="tests_colonne2"> <?= $test['description'] ?> </td>
                 </tr>
                 </a>
           
-          <?php
-              }
-              $compteur++;
-            }
-          ?>
+          <?php } $compteur++; } ?>
 
        </table>
 
-
-
       <div id="test_administateur">
-        <?php
-        
-        if ($_SESSION['role'] == 'Administrateur'){
-          //echo $_SESSION['role'] ;
-        
-        
-          ?>
           <div class="bouton">
-            <a href = 'test_ajout.php'>Ajouter</a>
-            <a href = 'test_modifier.php'>Editer</a>
-            <a href = 'test_supp.php'>Supprimer</a>
+            <a href = '/RocketSensorMVC/controller/tests.php?page=ajouter'>Ajouter</a>
+            <a href = '/RocketSensorMVC/controller/tests.php?page=modifier'>Editer</a>
+            <a href = '/RocketSensorMVC/controller/tests.php?page=supprimer'>Supprimer</a>
           </div>
-
-          <?php
-        }
-        ?>
       </div>
-
     </section>
 	
 	

@@ -1,0 +1,38 @@
+<?php
+	$title = "Supprimer un test"; 
+	$page_on = 'supprimerTest';
+?>
+
+<?php ob_start(); ?>
+	
+	<section>
+
+        <div id="head_tests">
+          <h1>Supprimer un test</h1>
+        </div>
+
+        <form method="post" action="/RocketSensorMVC/controller/tests.php?page=supprimerTraitement">
+
+        <table>
+
+          <?php while ($test = $tests->fetch()) { ?>
+
+            <tr>
+              <td><input type="radio" name="nom" value="<?= $test['nom']; ?>"/></td>
+              <td><label for="<?php $test['nom']; ?>"> <?= $test['nom'] ; ?> </label></td>
+            </tr>
+
+         <?php } ?>
+         
+        </table>
+          <div class="bouton">
+              <input type="submit" value="Supprimer" /> 
+              <a href = 'tests_admin.php'>Annuler</a>   
+          </div>
+        </form>    
+      </section>
+
+
+<?php $content = ob_get_clean(); ?>
+
+<?php require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/template.php"); ?>

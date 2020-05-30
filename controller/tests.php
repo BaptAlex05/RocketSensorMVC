@@ -8,6 +8,34 @@
 			test();
 		}
 
+		elseif ($_GET['page'] == "admin") {
+			listeTestsAdmin();
+		}
+
+		elseif ($_GET['page'] == "ajouter") {
+			testAjouter();
+		}
+
+		elseif ($_GET['page'] == "ajouterTraitement") { 
+			testAjouterTraitement();
+		}
+
+		elseif ($_GET['page'] == "modifier") {
+			testModifier();
+		}
+
+		elseif ($_GET['page'] == "modifierTraitement") {
+			testModifierTraitement();
+		}
+
+		elseif ($_GET['page'] == "supprimer") {
+			testSupprimer();
+		}
+
+		elseif ($_GET['page'] == "supprimerTraitement") { 
+			testSupprimerTraitement();
+		}
+
 		else {
 			listeTests();
 		}
@@ -39,36 +67,43 @@
 	}
 
 	function listeTestsAdmin() {
-		$tests = getTests();
+		if ($_SESSION['role'] == "Administrateur") {
 
-		//Messages de confirmation après ajout, edition, suppression d'un test
-		if (isset($_GET['action'])) {
+			$tests = getTestsAdmin();
 
-		    if ($_GET['action'] == 1) {
-		     	$alerte = "Le test a bien été ajouté !" ;
-		     	require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/tests/testsListeAdmin.php");
-		    }
-			elseif ($_GET['action'] == 2) {
-		        $alerte = "Le test a bien été édité !" ;
-		        require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/tests/testsListeAdmin.php");
-		    }
-		    elseif ($_GET['action'] == 3) {
-		        $alerte= "Une erreure s'est produite. Veuillez réessayer." ;
-		        require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/tests/testsListeAdmin.php");
-		    }
-		    elseif ($_GET['action'] == 4) {
-		        $alerte = "Le test a bien été supprimé !" ;
-		        require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/tests/testsListeAdmin.php");
-		    }
-		    else{
-		    	require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/tests/testsListeAdmin.php");
-		    }
+			//Messages de confirmation après ajout, edition, suppression d'un test
+			if (isset($_GET['action'])) {
+
+			    if ($_GET['action'] == 1) {
+			     	$alerte = "Le test a bien été ajouté !" ;
+			     	require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/tests/testsListeAdmin.php");
+			    }
+				elseif ($_GET['action'] == 2) {
+			        $alerte = "Le test a bien été édité !" ;
+			        require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/tests/testsListeAdmin.php");
+			    }
+			    elseif ($_GET['action'] == 3) {
+			        $alerte= "Une erreure s'est produite. Veuillez réessayer." ;
+			        require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/tests/testsListeAdmin.php");
+			    }
+			    elseif ($_GET['action'] == 4) {
+			        $alerte = "Le test a bien été supprimé !" ;
+			        require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/tests/testsListeAdmin.php");
+			    }
+			    else {
+			    	require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/tests/testsListeAdmin.php");
+			    }
+			}
+
+			else {
+			   	require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/tests/testsListeAdmin.php");
+			}
 		}
-		else{
-		   	require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/tests/testsListeAdmin.php");
+
+		else {
+			header("Location: /RocketSensorMVC/controller/tests.php");
 		}
 	}
-
 
 	function test() {
 		if (isset($_GET['id'])) {
@@ -79,7 +114,7 @@
 			}
 
 			else {
-				require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/tests/testDescription.php");
+				require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/tests/testDescriptionTemplate.php");
 			}
 		}
 
@@ -90,9 +125,65 @@
 		//EVENTUELLEMENT VERIFIER QUE LE TEST EXISTE BIEN DANS LA BDD
 	}
 
+	function testAjouter(){
+		if ($_SESSION['role'] == "Administrateur") {
+			require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/tests/testAjouter.php");
+		}
 
+		else {
+			header("Location: /RocketSensorMVC/controller/tests.php");
+		}
+	}
 
+	function testAjouterTraitement() {
+		ajouterTest($_POST['nom'], $_POST['description'], $_POST['capteur'], $_POST['duree'], $_POST['deroulement']);
 
+		header("Location: /RocketSensorMVC/controller/tests.php?page=admin&action=1");
+	}
 
+	function testModifier(){
+		if ($_SESSION['role'] == "Administrateur") {
+			$tests = getTestsNoms ();
+			if (isset($_POST['id'])) {
+				$test = getTest($_POST['id']);
+				require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/tests/testModifierForm.php");
+			}
 
+			else {
+				require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/tests/testModifierTemplate.php");
+			}
+		}
 
+		else {
+			header("Location: /RocketSensorMVC/controller/tests.php");
+		}
+	}
+
+	function testModifierTraitement() {
+		if (isset($_GET['id'])) {
+			modifierTest($_POST['nom'], $_POST['description'], $_POST['capteur'], $_POST['duree'], $_POST['deroulement'], $_GET['id']);
+			header("Location: /RocketSensorMVC/controller/tests.php?page=admin&action=2");
+		}
+
+		else {
+			header("Location: /RocketSensorMVC/controller/tests.php?page=admin&action=3");
+		}
+
+	}
+
+	function testSupprimer(){
+		if ($_SESSION['role'] == "Administrateur") {
+			$tests = getTestsNoms() ;
+			require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/tests/testSupprimer.php");
+		}
+
+		else {
+			header("Location: /RocketSensorMVC/controller/tests.php");
+		}
+	}
+
+	function testSupprimerTraitement() {
+		supprimerTest($_POST['nom']);
+
+		header("Location: /RocketSensorMVC/controller/tests.php?page=admin&action=4");
+	}
