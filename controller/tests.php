@@ -40,6 +40,10 @@
 			testSupprimerTraitement();
 		}
 
+		elseif ($_GET['page'] == "score") {
+			testScore();
+		}
+
 		else {
 			listeTests();
 		}
