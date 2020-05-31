@@ -8,6 +8,10 @@
 			test();
 		}
 
+		elseif ($_GET['page'] == "eleve") {
+			listeTests();
+		}
+
 		elseif ($_GET['page'] == "admin") {
 			listeTestsAdmin();
 		}
@@ -186,4 +190,19 @@
 		supprimerTest($_POST['nom']);
 
 		header("Location: /RocketSensorMVC/controller/tests.php?page=admin&action=4");
+	}
+
+	function testScore() {
+		$score = rand (0 , 100);
+		testInsererScore($_SESSION['id'], $_GET['id_test'], $score);
+
+		if (isset($_GET['id'])) {
+			$test = getTest($_GET['id']);
+			require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/tests/testScore.php");
+		}
+
+		else {
+			header("Location: /RocketSensorMVC/controller/tests.php");
+		}
+
 	}

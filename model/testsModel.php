@@ -64,3 +64,11 @@
 	    
 	}
 
+	function testInsererScore ($id_utilisateur, $id_test, $score) {
+		$bdd = dbConnect();
+		$req = $bdd->prepare('INSERT INTO resultats_tests(id_utilisateur, id_test, score, date) VALUES(:id_utilisateur, :id_test, :score, NOW())');
+		$req->execute(array(
+			'id_utilisateur' => $id_utilisateur,
+			'id_test' => $id_test,
+			'score' => $score));
+	}
