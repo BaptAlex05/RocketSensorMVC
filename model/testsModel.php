@@ -71,4 +71,6 @@
 			'id_utilisateur' => $id_utilisateur,
 			'id_test' => $id_test,
 			'score' => $score));
+
+		return $req;
 	}

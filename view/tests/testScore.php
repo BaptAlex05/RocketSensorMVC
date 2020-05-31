@@ -20,6 +20,9 @@
         <?php } ?>
     </div>
 
+    <?= $_SESSION['id'] ?>
+    <?= $_GET['id'] ?>
+
     <div class="bouton">
         <a href='tests.php'>Retour à la liste des tests</a>
     </div>

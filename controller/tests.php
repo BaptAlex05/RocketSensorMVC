@@ -179,7 +179,7 @@
 
 	}
 
-	function testSupprimer(){
+	function testSupprimer() {
 		if ($_SESSION['role'] == "Administrateur") {
 			$tests = getTestsNoms() ;
 			require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/tests/testSupprimer.php");
@@ -198,15 +198,23 @@
 
 	function testScore() {
 		$score = rand (0 , 100);
-		testInsererScore($_SESSION['id'], $_GET['id_test'], $score);
-
 		if (isset($_GET['id'])) {
-			$test = getTest($_GET['id']);
-			require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/tests/testScore.php");
+			if (testInsererScore($_SESSION['id'], $_GET['id'], $score)) {
+				if ($test = getTest($_GET['id'])) {
+					require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/tests/testScore.php");
+				}
+				
+				else {
+					header("Location: /RocketSensorMVC/controller/tests.php?action=3");
+				}
+			}
+			else {
+				header("Location: /RocketSensorMVC/controller/tests.php?action=3");
+			}
 		}
 
 		else {
-			header("Location: /RocketSensorMVC/controller/tests.php");
+			header("Location: /RocketSensorMVC/controller/tests.php?action=3");
 		}
 
 	}
