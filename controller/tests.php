@@ -57,21 +57,28 @@
 	function listeTests(){
 		$tests = getTests($_SESSION['id']);
 
-		if (isset($_GET['action'])) {
-			if ($_GET['action'] == 1) {
-				$alerte = "Une erreur est survenue. Veuillez réessayer.";
-				require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/tests/testsListe.php");
+		if ($_SESSION['role'] == "Élève") {
+			if (isset($_GET['action'])) {
+				if ($_GET['action'] == 1) {
+					$alerte = "Une erreur est survenue. Veuillez réessayer.";
+					require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/tests/testsListe.php");
+				}
+
+				else {
+					require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/tests/testsListe.php");
+				}
 			}
 
 			else {
 				require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/tests/testsListe.php");
 			}
 		}
-
+		elseif ($_SESSION['role'] == "Administrateur") {
+		 	header("Location: /RocketSensorMVC/controller/tests.php?page=admin");
+		} 
 		else {
-			require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/tests/testsListe.php");
+			header("Location: /RocketSensorMVC/index.php");
 		}
-
 	}
 
 	function listeTestsAdmin() {
@@ -216,5 +223,18 @@
 		else {
 			header("Location: /RocketSensorMVC/controller/tests.php?action=3");
 		}
+	}
 
+	function resultatsTests() {
+		$tests = getTestsNoms();
+		if (isset($_POST['id'])) {
+			$test = getTest($_POST['id']);
+			affichageResultatsTests($_POST['id'], $id_utilisateur)
+			require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/tests/resultats.php");
+		}
+
+		else {
+			require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/tests/resultatsTemplate.php");
+		}
+		}
 	}

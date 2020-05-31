@@ -22,7 +22,7 @@
             <?php
               while ($test = $tests->fetch()){
             ?> 
-              <option value="<?php echo $test['id']; ?>" <?php if (isset($_POST['id']) && $test['id'] == $_POST['id']) { echo 'selected'; }?>><?php echo $test['nom']; ?> </option>
+              <option value="<?php echo $test['id']; ?>" <?php if (isset($_POST['id']) && $test['id'] == $_POST['id']) { echo 'selected'; }?>><?= htmlspecialchars($test['nom']); ?> </option>
             <?php } ?>
               </select>
             </td>

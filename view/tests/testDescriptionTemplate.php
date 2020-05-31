@@ -8,26 +8,26 @@
 	<section>
 
     <div id="head_tests">
-      <h1><?= $test['nom'] ?></h1>
+      <h1><?= htmlspecialchars($test['nom']) ?></h1>
     </div>
 
     <p>
       <table class="affichage_test">
           <tr>
               <td class="champ_profil">Description</td>
-              <td class="profil_ligne"><?= $test['description'] ?></span></td>
+              <td class="profil_ligne"><?= htmlspecialchars($test['description']) ?></span></td>
           </tr>
           <tr>
               <td class="champ_profil">Capteur</td>
-              <td class="profil_ligne"><?= $test['capteur'] ?></td>
+              <td class="profil_ligne"><?= htmlspecialchars($test['capteur']) ?></td>
           </tr>
           <tr>
               <td class="champ_profil">Durée</td>
-              <td class="profil_ligne"><?= $test['duree'] ?> minutes</td>
+              <td class="profil_ligne"><?= htmlspecialchars($test['duree']) ?> minutes</td>
           </tr>
           <tr>
               <td class="champ_profil">Déroulement</td>
-              <td class="profil_ligne"><?= $test['deroulement'] ?></span></td>
+              <td class="profil_ligne"><?= htmlspecialchars($test['deroulement']) ?></span></td>
           </tr>
       </table>
     </p>
