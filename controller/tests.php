@@ -151,7 +151,7 @@
 
 	function testModifier(){
 		if ($_SESSION['role'] == "Administrateur") {
-			$tests = getTestsNoms ();
+			$tests = getTestsNoms();
 			if (isset($_POST['id'])) {
 				$test = getTest($_POST['id']);
 				require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/tests/testModifierForm.php");
