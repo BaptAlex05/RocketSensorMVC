@@ -74,3 +74,12 @@
 
 		return $req;
 	}
+
+	function affichageResultatsTests($id_test, $id_utilisateur) {
+		$req = $bdd->prepare('SELECT score, DATE_FORMAT(date, \'%d/%m/%Y\') AS date FROM resultats_tests WHERE id_test = :id_test AND id_utilisateur = :id_utilisateur');
+		$req->execute(array(
+		'id_test' => $id_test,
+		'id_utilisateur' => $id_utilisateur));
+	}
+
+

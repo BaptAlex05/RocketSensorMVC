@@ -33,8 +33,8 @@
 
                 <a href ="/RocketSensorMVC/controller/tests.php?page=test&id=<?= $test['id']; ?>">
                 <tr class="couleur1_tab" onclick="document.location='/RocketSensorMVC/controller/tests.php?page=test&id=<?= $test['id']; ?>';">
-                    <td class="tests_colonne1"><a href ="/RocketSensorMVC/controller/tests.php?page=test&id=<?= $test['id']; ?>"><?= $test['nom'] ?></a></td>
-                    <td class="tests_colonne2"><?= $test['description'] ?></td>
+                    <td class="tests_colonne1"><a href ="/RocketSensorMVC/controller/tests.php?page=test&id=<?= $test['id']; ?>"><?= htmlspecialchars($test['nom']) ?></a></td>
+                    <td class="tests_colonne2"><?= htmlspecialchars($test['description']) ?></td>
                 </tr>
                 </a>
           
@@ -42,8 +42,8 @@
 
                 <a href ="/RocketSensorMVC/controller/tests.php?page=test&id=<?= $test['id']; ?>">
                 <tr class="couleur2_tab" onclick="document.location='/RocketSensorMVC/controller/tests.php?page=test&id=<?= $test['id']; ?>';">
-                    <td class="tests_colonne1"> <a href ="/RocketSensorMVC/controller/tests.php?page=test&id=<?= $test['id']; ?>"><?= $test['nom'] ?> </a> </td>
-                    <td class="tests_colonne2"> <?= $test['description'] ?> </td>
+                    <td class="tests_colonne1"> <a href ="/RocketSensorMVC/controller/tests.php?page=test&id=<?= $test['id']; ?>"><?= htmlspecialchars($test['nom']) ?> </a> </td>
+                    <td class="tests_colonne2"> <?= htmlspecialchars($test['description']) ?> </td>
                 </tr>
                 </a>
           

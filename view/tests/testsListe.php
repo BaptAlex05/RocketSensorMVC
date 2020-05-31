@@ -32,9 +32,9 @@
 
                 <a href ="/RocketSensorMVC/controller/tests.php?page=test&id=<?= $test['id_test']; ?>">
                 <tr class="couleur1_tab" onclick="document.location='/RocketSensorMVC/controller/tests.php?page=test&id=<?= $test['id_test']; ?>';">
-                    <td class="tests_colonne1"><a href ="/RocketSensorMVC/controller/tests.php?page=test&id=<?= $test['id_test']; ?>"><?php echo $test['nom'] ?></a></td> 
-                    <td class="tests_colonne2"><?php echo $test['description'] ?></td>
-                    <td class="tests_colonne3"><?php echo $test['score'] ?></td>
+                    <td class="tests_colonne1"><a href ="/RocketSensorMVC/controller/tests.php?page=test&id=<?= $test['id_test']; ?>"><?= htmlspecialchars($test['nom']) ?></a></td> 
+                    <td class="tests_colonne2"><?= htmlspecialchars($test['description']) ?></td>
+                    <td class="tests_colonne3"><?= htmlspecialchars($test['score']) ?></td>
                     <td class="tests_colonne4"><?php if ($test['score'] < 75) { echo "Non validé"; } else { echo "Validé"; } ?></td>
                 </tr>
                 </a>
@@ -43,9 +43,9 @@
 
                 <a href ="/RocketSensorMVC/controller/tests.php?page=test&id=<?= $test['id_test']; ?>">
                 <tr class="couleur2_tab" onclick="document.location='/RocketSensorMVC/controller/tests.php?page=test&id=<?= $test['id_test']; ?>';">
-                    <td class="tests_colonne1"><a href ="/RocketSensorMVC/controller/tests.php?page=test&id=<?= $test['id_test']; ?>"><?php echo $test['nom'] ?></a></td>
-                    <td class="tests_colonne2"><?php echo $test['description'] ?> </td>
-                    <td class="tests_colonne3"><?php echo $test['score'] ?></td>
+                    <td class="tests_colonne1"><a href ="/RocketSensorMVC/controller/tests.php?page=test&id=<?= $test['id_test']; ?>"><?= htmlspecialchars($test['nom']) ?></a></td>
+                    <td class="tests_colonne2"><?= htmlspecialchars($test['description']) ?> </td>
+                    <td class="tests_colonne3"><?= htmlspecialchars($test['score']) ?></td>
                     <td class="tests_colonne4"><?php if ($test['score'] < 75) { echo "Non validé"; } else { echo "Validé"; } ?></td>
                 </tr>
                 </a>

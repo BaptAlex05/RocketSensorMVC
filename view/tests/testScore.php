@@ -7,7 +7,7 @@
 	
 	<section>
 
-    <h1><?php echo $test['nom']; ?></h1>
+    <h1><?= htmlspecialchars($test['nom']); ?></h1>
 
     <div id="test_score">
         <p> Vous avez obtenu le score : <strong><?= $score;?></strong></p>
