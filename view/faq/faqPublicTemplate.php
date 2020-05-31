@@ -1,6 +1,7 @@
 <?php
 	$title = "FAQ"; 
 	$page_on = 'faq';
+	$script = "resultat";
 ?>
 
 <?php ob_start(); ?>
