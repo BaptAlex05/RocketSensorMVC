@@ -13,6 +13,30 @@
 			questionTraitement();
 		}
 
+		elseif ($_GET['page'] == "admin") {
+			faqAdmin();
+		}
+
+		elseif ($_GET['page'] == "reponse") {
+			posterReponse();
+		}
+
+		elseif ($_GET['page'] == "reponseTraitement") {
+			reponseTraitement();
+		}
+
+		elseif ($_GET['page'] == "supprimer") {
+			supprimerTraitement();
+		}
+
+		elseif ($_GET['page'] == "modifier") {
+			modifierQuestionReponse();
+		}
+
+		elseif ($_GET['page'] == "modifierTraitement") {
+			modifierTraitement();
+		}
+
 		else {
 			faqListe();
 		}
@@ -41,7 +65,7 @@
 			}
 		}
 
-		$req = getPublicQuestions();
+		$questions = getPublicQuestions();
 
 		if (isset($_SESSION['id'])) {
 			if ($_SESSION['role'] == "Élève" || $_SESSION['role'] == "Moniteur") {
@@ -54,8 +78,7 @@
 		}
 
 		else {
-			$message = "Pour pouvoir poser une question sur la FAQ, veuillez <a href=\"/RocketSensorMVC/controller/connexion.php\">vous connecter</a>. Pour toute question ou demande personnelle, merci d'utiliser le <a href=\"/rocketSensorMVC/controller/contact.php\">formulaire de contact</a>.";
-			require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/faq/faqPublicTemplate.php");
+			require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/faq/faqPublic.php");
 		}
 	}
 
@@ -83,6 +106,150 @@
 
 		else {
 			header("Location: /RocketSensorMVC/controller/faq.php?action=1");
+		}
+	}
+
+	function faqAdmin() {
+		if ($_SESSION['role'] == "Administrateur") {
+			if (isset($_GET['action'])) {
+				if ($_GET['action'] == 1) {
+					$alerte = "Une erreur est survenue. Merci de réessayer.";
+				}
+
+				elseif ($_GET['action'] == 2) {
+					$alerte = "La réponse a bien été publiée.";
+				}
+
+				elseif ($_GET['action'] == 3) {
+					$alerte = "La question a bien été supprimée.";
+				}
+			}
+
+			if ($questions = getQuestionsAdmin()) {
+				if ($questions->rowCount() == 0) {
+					$message = "Il n'y a aucune question en attente.";
+				}
+
+				require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/faq/faqAdmin.php");
+			}
+
+			else {				
+				require("Location: /RocketSensorMVC/controller/faq.php?page=admin&action=1");		
+			}
+		}
+
+		else {
+			header("Location: /RocketSensorMVC/controller/faq.php");
+		}
+	}
+
+	function posterReponse() {
+		if ($_SESSION['role'] == "Administrateur") {
+			if (isset($_GET['id'])) {
+				if ($question = getQuestion($_GET['id'])) {
+					require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/faq/faqReponse.php");
+				}
+
+				else {
+					header("Location: /RocketSensorMVC/controller/faq.php?page=admin&action=1");
+				}
+			}
+
+			else {
+				header("Location: /RocketSensorMVC/controller/faq.php?page=admin&action=1");
+			}
+		}
+
+		else {
+			header("Location: /RocketSensorMVC/controller/faq.php");
+		}
+	}
+
+	function reponseTraitement() {
+		if ($_SESSION['role'] == "Administrateur") {
+			if (isset($_GET['id'])) {
+				if (ajouterReponse($_POST['question'], $_POST['reponse'], $_GET['id'])) {
+					header("Location: /RocketSensorMVC/controller/faq.php?page=admin&action=2");
+				}
+
+				else {
+					header("Location: /RocketSensorMVC/controller/faq.php?page=admin&action=1");
+				}
+			}
+
+			else {
+				header("Location: /RocketSensorMVC/controller/faq.php?page=admin&action=1");
+			}
+		}
+
+		else {
+			header("Location: /RocketSensorMVC/controller/faq.php?page=admin&action=1");
+		}
+	}
+
+	function supprimerTraitement() {
+		if ($_SESSION['role'] == "Administrateur") {
+			if (isset($_GET['id'])) {
+				if (supprimerQuestion($_GET['id'])) {
+					header("Location: /RocketSensorMVC/controller/faq.php?page=admin&action=3");
+				}
+
+				else {
+					header("Location: /RocketSensorMVC/controller/faq.php?page=admin&action=1");
+				}
+			}
+
+			else {
+				header("Location: /RocketSensorMVC/controller/faq.php?page=admin&action=1");
+			}
+		}
+
+		else {
+			header("Location: /RocketSensorMVC/controller/faq.php");
+		}
+	}
+
+	function modifierQuestionReponse() {
+		if ($_SESSION['role'] == "Administrateur") {
+			if (isset($_GET['id'])) {
+				if ($resultat = getQuestionReponse($_GET['id'])) {
+					require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/faq/faqModifier.php");
+				}
+
+				else {
+					header("Location: /RocketSensorMVC/controller/faq.php?page=admin&action=1");
+				}
+			}
+
+			else {
+				header("Location: /RocketSensorMVC/controller/faq.php?page=admin&action=1");
+			}
+		}
+
+		else {
+			header("Location: /RocketSensorMVC/controller/faq.php");
+		}
+	}
+
+	function modifierTraitement() {
+		if ($_SESSION['role'] == "Administrateur") {
+			if (isset($_GET['id'])) {
+				if (modifierFaq($_POST['question'], $_POST['reponse'], $_GET['id'])) {
+					header("Location: /RocketSensorMVC/controller/faq.php?action=4");
+				}
+
+				else {
+					header("Location: /RocketSensorMVC/controller/faq.php?action=1");
+				}
+			}
+
+			else {
+				header("Location: /RocketSensorMVC/controller/faq.php?action=1");
+			}
+		}
+
+		else {
+			header("Location: /RocketSensorMVC/controller/faq.php");
 		}
 	}
 

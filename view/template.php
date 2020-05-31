@@ -5,7 +5,7 @@
 		<link rel="icon" href="/RocketSensorMVC/public/images/logo_rocket-sensor.png" />
 		<title>Rocket Sensor - <?= $title ?></title>
 		<link rel="stylesheet" href="/RocketSensorMVC/public/css/style.css" />
-		<?php if (isset($script)) { echo "<script src=\"/RocketSensorMVC/public/js/$script.js\" async></script>" } ?>
+		<?php if (isset($script)) { echo "<script src=\"/RocketSensorMVC/public/js/$script.js\" async></script>"; } ?>
 		<link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
 	</head>
 
