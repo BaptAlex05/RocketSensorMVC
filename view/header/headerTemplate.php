@@ -5,8 +5,8 @@
 		</div>
 		<nav id="menu_principal">
 			<ul>
-				<li <?php if ($page_on == 'accueil') {echo ' id="page_on"';} ?>><a href="index.php">Accueil</a></li>
-	        	<li <?php if ($page_on == 'faq') {echo ' id="page_on"';} ?>><a href="faq.php">Faq</a></li>
+				<li <?php if ($page_on == 'accueil') {echo ' id="page_on"';} ?>><a href="/RocketSensorMVC/index.php">Accueil</a></li>
+	        	<li <?php if ($page_on == 'faq') {echo ' id="page_on"';} ?>><a href="/RocketSensorMVC/controller/faq.php">Faq</a></li>
 	        	<li <?php if ($page_on == 'contact') {echo ' id="page_on"';} ?>><a href="contact.php">Contact</a></li>
 			</ul>
 		</nav>

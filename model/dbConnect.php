@@ -2,8 +2,8 @@
 
 function dbConnect() {
 	try {
-    	$db = new PDO('mysql:host=localhost;dbname=rocketsensor_mvc;charset=utf8', 'rocketsensor', 'rocketsensor');
-    	return $db;
+    	$bdd = new PDO('mysql:host=localhost;dbname=rocketsensor_mvc;charset=utf8', 'rocketsensor', 'rocketsensor');
+    	return $bdd;
   	}
 
   	catch(Exception $e) {
