@@ -22,7 +22,7 @@
 						<input type="mail" name="mail" id="mail"></p>
 				    	<p><label for="motdepasse">Mot de passe</label></br>
 						<input type="password" name="motdepasse" id="motdepasse"></p>
-						<p><a href="MotDePasseOublie.php">Mot de passe oublié ?</a></p>
+						<p><a href="/RocketSensorMVC/controller/connexion.php?page=motdepasseoublie">Mot de passe oublié ?</a></p>
 					</div>
 			    </div>
 			</div>

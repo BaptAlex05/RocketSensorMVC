@@ -866,10 +866,13 @@ td a:hover{
 
 /* Réinitialisation mot de passe */
 
-#formulaire_recuperation {
+#recuperation {
+	width: 75%;
+	margin: auto;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	align-items: center;
 }
 .barre_recuperation {
 	text-align: center;
