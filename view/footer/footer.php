@@ -3,8 +3,8 @@
 
 		<nav id="menu_footer">
 			<ul>
-				<li><a href="cgu.php">Conditions générales d'utilisation</a></li>
-				<li><a href="mentions_legales.php">Mentions légales</a></li>
+				<li><a href="/RocketSensorMVC/index.php?section=cgu">Conditions générales d'utilisation</a></li>
+				<li><a href="/RocketSensorMVC/index.php?section=mentions_legales">Mentions légales</a></li>
 		</nav>
 
 		<div id="copyright">

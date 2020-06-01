@@ -65,7 +65,7 @@
 			</p>
 
 			<p id="case_cgu">
-		       <input type="checkbox" name="cgu" id="cgu" required/><label for="cgu">J'ai lu et j'accepte les <a href="cgu.php">Conditions générales d'utilisation</a></label>
+		       <input type="checkbox" name="cgu" id="cgu" required/><label for="cgu">J'ai lu et j'accepte les <a href="/RocketSensorMVC/index.php?section=cgu">Conditions générales d'utilisation</a></label>
 			</p>
 			
 			<div class="bouton">

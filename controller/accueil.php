@@ -1,6 +1,4 @@
 <?php 
-	session_start();
-
 	function accueil() {
 		if (isset($_SESSION['id'])) {
 			if ($_SESSION['role'] == 'Élève') {
