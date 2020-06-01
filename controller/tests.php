@@ -44,6 +44,10 @@
 			testScore();
 		}
 
+		elseif ($_GET['page'] == "resultats") {
+			resultatsTests();
+		}
+
 		else {
 			listeTests();
 		}
@@ -226,15 +230,37 @@
 	}
 
 	function resultatsTests() {
-		$tests = getTestsNoms();
-		if (isset($_POST['id'])) {
-			$test = getTest($_POST['id']);
-			affichageResultatsTests($_POST['id'], $id_utilisateur)
-			require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/tests/resultats.php");
+		if (isset($_GET['action'])) {
+			if ($_GET['action'] == 1) {
+				$alerte = "Une erreur est survenue";
+			}
 		}
 
-		else {
-			require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/tests/resultatsTemplate.php");
-		}
+		if (isset($_SESSION['id']) && $_SESSION['role'] == "Élève") {
+			if ($tests = getTestsNoms()) {
+				if (isset($_POST['id'])) {
+					if ($test = getTestNom($_POST['id'])) {
+						if ($resultats = getResultatsTest($_POST['id'], $_SESSION['id'])) {
+							require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/tests/resultatsAffichage.php");
+						}
+
+						else {
+							header("Location: /RocketSensorMVC/controller/tests.php?page=resultats&action=1");
+						}	
+					}
+
+					else {
+						header("Location: /RocketSensorMVC/controller/tests.php?page=resultats&action=1");
+					}
+				}
+
+				else {
+					require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/tests/resultatsTemplate.php");
+				}
+			}
+
+			else {
+				header("Location: /RocketSensorMVC/controller/tests.php?page=resultats&action=1");
+			}
 		}
 	}

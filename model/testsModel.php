@@ -17,7 +17,7 @@
 		return $tests;
 	}
 
-	function getTest($id_test){
+	function getTest($id_test) {
 		$bdd = dbConnect();
 		$req = $bdd->prepare('SELECT id, nom, description, capteur, duree, deroulement FROM tests WHERE id = ?');
 		$req->execute(array($id_test));
@@ -50,11 +50,20 @@
 			'id' => $id));
 	}
 
-	function getTestsNoms(){
+	function getTestsNoms() {
 		$bdd = dbConnect();
 		$tests = $bdd->query('SELECT id, nom FROM tests');
 
 		return $tests;
+	}
+
+	function getTestNom($id_test) {
+		$bdd = dbConnect();
+		$req = $bdd->prepare('SELECT nom FROM tests WHERE id = ?');
+		$req->execute(array($id_test));
+		$test = $req->fetch();
+
+		return $test;
 	}
 
 	function supprimerTest($nom) {
@@ -75,11 +84,14 @@
 		return $req;
 	}
 
-	function affichageResultatsTests($id_test, $id_utilisateur) {
-		$req = $bdd->prepare('SELECT score, DATE_FORMAT(date, \'%d/%m/%Y\') AS date FROM resultats_tests WHERE id_test = :id_test AND id_utilisateur = :id_utilisateur');
-		$req->execute(array(
+	function getResultatsTest($id_test, $id_utilisateur) {
+		$bdd = dbConnect();
+		$resultats = $bdd->prepare('SELECT score, DATE_FORMAT(date, \'%d/%m/%Y\') AS date FROM resultats_tests WHERE id_test = :id_test AND id_utilisateur = :id_utilisateur');
+		$resultats->execute(array(
 		'id_test' => $id_test,
 		'id_utilisateur' => $id_utilisateur));
+
+		return $resultats;
 	}
 
 
