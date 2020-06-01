@@ -1,7 +1,6 @@
 <?php
 	$title = "Résultats"; 
 	$page_on = 'resultats';
-  //$script = "graph";
 ?>
 
 <?php ob_start(); ?>
@@ -9,7 +8,11 @@
   <section>
 
     <div id="head_tests">
-      <h1>Synthèse des résultats</h1>
+      <?php if (isset($nom)) { ?>
+        <h1>Synthèse des résultats de <?= $nom ?></h1>
+      <?php } else { ?>
+        <h1>Synthèse des résultats</h1>
+      <?php } ?>
     </div>
 
     <?php if (isset($alerte)) { ?>
@@ -17,7 +20,7 @@
     <?php } ?>
 
     <!-- Formulaire permettant de choisir le test pour lequel on veut voir les resultats -->
-    <form id="formulaire" action="/RocketSensorMVC/controller/tests.php?page=resultats" method="post">
+    <form id="formulaire" action="/RocketSensorMVC/controller/tests.php?page=resultats<?php if (isset($_GET['id'])) { echo '&id='.$_GET['id']; } ?>" method="post">
       <table>
         <tr>
            <td class="champ_profil"><label for="id">Choisir un test</label></td>

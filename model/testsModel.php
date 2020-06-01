@@ -94,4 +94,13 @@
 		return $resultats;
 	}
 
+	function getUtilisateur($id) {
+		$bdd = dbConnect();
+		$req = $bdd->prepare('SELECT nom, prenom, role FROM utilisateurs WHERE id = ?');
+		$req->execute(array($id));
+		$utilisateur = $req->fetch();
+
+		return $utilisateur;
+	}
+
 

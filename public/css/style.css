@@ -855,9 +855,13 @@ td a:hover{
 	text-align: left;
 }
 
-#graph1 {
+#graph {
 	padding-left: 50px;
 	height: 300px;
+}
+
+.resultats_validation {
+	text-align: center;
 }
 
 /* Réinitialisation mot de passe */
@@ -879,8 +883,6 @@ td a:hover{
 	padding: 5px 5px 5px 5px;
 	margin-top: 10px;
 }
-
-
 
 
 #head_contact{

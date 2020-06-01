@@ -236,7 +236,7 @@
 			}
 		}
 
-		if (isset($_SESSION['id']) && $_SESSION['role'] == "Élève") {
+		if ($_SESSION['role'] == "Élève") {
 			if ($tests = getTestsNoms()) {
 				if (isset($_POST['id'])) {
 					if ($test = getTestNom($_POST['id'])) {
@@ -261,6 +261,44 @@
 
 			else {
 				header("Location: /RocketSensorMVC/controller/tests.php?page=resultats&action=1");
+			}
+		}
+
+		else {
+			if (isset($_GET['id'])) {
+				if ($utilisateur = getUtilisateur($_GET['id'])) {
+					if ($utilisateur['role'] == "Élève") {
+						$nom = htmlspecialchars($utilisateur['prenom'])." ".htmlspecialchars($utilisateur['nom']);
+						if ($tests = getTestsNoms()) {
+							if (isset($_POST['id'])) {
+								if ($test = getTestNom($_POST['id'])) {
+									if ($resultats = getResultatsTest($_POST['id'], $_GET['id'])) {
+										require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/tests/resultatsAffichage.php");
+									}
+
+									else {
+										header("Location: /RocketSensorMVC/controller/tests.php?page=resultats&action=1");
+									}	
+								}
+
+								else {
+									header("Location: /RocketSensorMVC/controller/tests.php?page=resultats&action=1");
+								}
+							}
+
+							else {
+								require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/tests/resultatsTemplate.php");
+							}
+						}
+					}
+				}
+
+
+			
+
+				else {
+					header("Location: /RocketSensorMVC/controller/tests.php?page=resultats&action=1");
+				}
 			}
 		}
 	}

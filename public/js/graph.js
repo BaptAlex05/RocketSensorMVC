@@ -1,4 +1,4 @@
-let ctx = document.getElementById('graph1').getContext('2d')
+let ctx = document.getElementById('graph').getContext('2d')
 
 let data = {
   labels: dates, /* abscisse (dates) */
@@ -28,4 +28,5 @@ let config = {
   data: data,
   options: options
 }
-let graph1 = new Chart(ctx, config);
+
+let graph = new Chart(ctx, config);
