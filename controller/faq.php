@@ -110,7 +110,7 @@
 	}
 
 	function faqAdmin() {
-		if ($_SESSION['role'] == "Administrateur") {
+		if (isset($_SESSION['id']) && $_SESSION['role'] == "Administrateur") {
 			if (isset($_GET['action'])) {
 				if ($_GET['action'] == 1) {
 					$alerte = "Une erreur est survenue. Merci de réessayer.";
@@ -133,8 +133,9 @@
 				require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/faq/faqAdmin.php");
 			}
 
-			else {				
-				require("Location: /RocketSensorMVC/controller/faq.php?page=admin&action=1");		
+			else {	
+				$alerte = "Une erreur est survenue.";			
+				require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/faq/faqAdmin.php");	
 			}
 		}
 

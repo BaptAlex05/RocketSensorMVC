@@ -11,6 +11,10 @@
 			<p class="alerte"><?= $alerte ?></p>
 		<?php } ?>
 
+		<?php if (isset($message)) { ?>
+			<p class="alerte"><?= $message ?></p>
+		<?php } ?>
+
 		<?php while ($question = $questions->fetch()) { ?>
 
 			<div class="faq_admin_post">
@@ -28,10 +32,6 @@
 				</div>
 			</div>
 
-		<?php } ?>
-
-		<?php if (isset($message)) { ?>
-			<p class="alerte"><?= $message ?></p>
 		<?php } ?>
 	
 	</section>

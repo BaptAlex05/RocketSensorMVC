@@ -654,26 +654,38 @@ td a:hover{
 	padding: 0 10px 0 10px;
 }
 
-/*FAQ*/
+/*FAQ + contact*/
 
-.faq_post, .faq_admin_post {
+.faq_post, .faq_admin_post, .contact_admin_post {
 	width: 80%;
 	margin: 20px auto 20px auto;
 }
 
-.faq_post div, .faq_admin_post div {
+.faq_post div, .faq_admin_post div, .contact_admin_post div {
 	padding: 15px 30px 15px 30px;
 }
 
-.faq_admin_post {
+.faq_admin_post, .contact_admin_post {
 	display: flex;
 }
 
-.faq_question, .faq_admin_question {
+.faq_question, .faq_admin_question, .contact_admin_message, #contact_admin_reponse_message {
 	background: #E5E5E5;
 }
 
-.faq_reponse, .faq_admin_boutons {
+.contact_admin_message {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 95%;
+}
+
+.contact_admin_message table {
+	width: 100%;
+}
+
+
+.faq_reponse, .faq_admin_boutons, .contact_admin_boutons {
 	background: #F7F7F7;
 }
 
@@ -686,15 +698,14 @@ td a:hover{
 	margin-top: 5px;
 }
 
-.faq_admin_boutons {
+.faq_admin_boutons, .contact_admin_boutons {
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	height: 50px;
 	width: 50%;
 }
 
-.faq_admin_boutons div {
+.faq_admin_boutons div, .contact_admin_boutons div {
 	padding: 0;
 	margin: 0;
 }
@@ -728,6 +739,34 @@ td a:hover{
 #faq_connectez-vous {
 	text-align: center;
 }
+
+#contact_admin_reponse {
+	width: 75%;
+	margin: auto;
+}
+
+#contact_admin_reponse table {
+	width: 100%;
+}
+
+#contact_admin_reponse_message {
+	padding: 15px;
+	margin-bottom: 20px;
+}
+
+#contact_admin_reponse_message_label {
+	font-weight: bold;
+}
+
+#contact_admin_reponse form {
+	width: 100%;
+}
+
+#contact_admin_reponse textarea {
+	width: 100%;
+	min-height: 200px;
+}
+
 
 /* Mentions légales */
 #mentions_legales_section h2 {

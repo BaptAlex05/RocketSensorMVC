@@ -83,10 +83,10 @@
 				if (password_verify($_POST['motdepasse'], $utilisateur['motdepasse'])) {
 					session_start();
 					$_SESSION['id'] = $utilisateur['id'];
-			        $_SESSION['mail'] = $utilisateur['mail'];
-			        $_SESSION['prenom'] = $utilisateur['prenom'];
-			        $_SESSION['nom'] = $utilisateur['nom'];
-			        $_SESSION['role'] = $utilisateur['role'];
+			        $_SESSION['mail'] = htmlspecialchars($utilisateur['mail']);
+			        $_SESSION['prenom'] = htmlspecialchars($utilisateur['prenom']);
+			        $_SESSION['nom'] = htmlspecialchars($utilisateur['nom']);
+			        $_SESSION['role'] = htmlspecialchars($utilisateur['role']);
 
 			        header("Location: /RocketSensorMVC/index.php");
 				}
