@@ -1,6 +1,7 @@
 <?php
 	$title = "Inscription"; 
 	$page_on = 'inscription';
+	$script = 'verifications';
 ?>
 
 <?php ob_start(); ?>
