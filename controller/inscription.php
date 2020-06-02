@@ -50,7 +50,7 @@
 	}
 
 	function inscriptionFormTraitement() {
-		$nom = strtoupper(htmlspecialchars($_POST['nom']));
+		$nom = mb_strtoupper(htmlspecialchars($_POST['nom']));
 		$prenom = htmlspecialchars($_POST['prenom']);
 		$datenaissance = htmlspecialchars($_POST["datenaissance"]);
 		$mail = htmlspecialchars($_POST['mail']);

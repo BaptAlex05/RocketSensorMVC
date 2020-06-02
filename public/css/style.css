@@ -654,6 +654,10 @@ td a:hover{
 	padding: 0 10px 0 10px;
 }
 
+#retour_liste_autoecoles a {
+	margin-left: 150px;
+}
+
 /*FAQ + contact*/
 
 .faq_post, .faq_admin_post, .contact_admin_post {
