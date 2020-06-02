@@ -58,10 +58,9 @@
 				<label for="autoecole">Auto-école (Facultatif)</label><br/>
 				<select name="autoecole" id="formulaire_autoecole" required>
 					<option value="-" selected> - </option>
-	          		<option value="1">Id 1</option>
-	          		<option value="2">Id 2</option>
-	          		<option value="3">Id 3</option>
-	          		<option value="4">Id 4</option>
+					<?php while($autoecole = $autoecoles->fetch()) { ?>
+	          			<option value="<?= $autoecole['id'] ?>"><?= htmlspecialchars($autoecole['nom']) ?> - <?= htmlspecialchars($autoecole['ville']) ?></option>
+          			<?php } ?>
 		        </select>
 			</p>
 

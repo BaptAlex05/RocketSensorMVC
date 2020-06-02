@@ -27,26 +27,32 @@
 		header("Location: /RocketSensorMVC/index.php");
 	}
 
-	function inscriptionForm() { 	
-		if (isset($_GET['action'])) {
-			if ($_GET['action'] == 1) {
-				$alerte = "Il semblerait qu'un utilisateur soit déjà enregistré avec ces informations. Merci de saisir des informations valides.";
-				require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/inscription/inscriptionForm.php");
-			}
+	function inscriptionForm() { 
+		if ($autoecoles = getAutoecoles()) {
+			if (isset($_GET['action'])) {
+				if ($_GET['action'] == 1) {
+					$alerte = "Il semblerait qu'un utilisateur soit déjà enregistré avec ces informations. Merci de saisir des informations valides.";
+					require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/inscription/inscriptionForm.php");
+				}
 
-			elseif ($_GET['action'] == 2) {
-				$alerte = "Les deux mots de passe saisis ne semblent pas correspondre. Merci de réessayer.";
-				require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/inscription/inscriptionForm.php");
+				elseif ($_GET['action'] == 2) {
+					$alerte = "Les deux mots de passe saisis ne semblent pas correspondre. Merci de réessayer.";
+					require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/inscription/inscriptionForm.php");
+				}
+
+				else {
+					require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/inscription/inscriptionForm.php");	
+				}
 			}
 
 			else {
 				require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/inscription/inscriptionForm.php");	
-			}
+			}	
 		}
 
 		else {
-			require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/inscription/inscriptionForm.php");	
-		}	
+			header("Location: /RocketSensorMVC/index.php");
+		}
 	}
 
 	function inscriptionFormTraitement() {
