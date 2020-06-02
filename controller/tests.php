@@ -202,9 +202,13 @@
 	}
 
 	function testSupprimerTraitement() {
-		supprimerTest($_POST['nom']);
+		if (supprimerTest($_POST['nom'])) {
+			header("Location: /RocketSensorMVC/controller/tests.php?page=admin&action=4");
+		}
 
-		header("Location: /RocketSensorMVC/controller/tests.php?page=admin&action=4");
+		else {
+			header("Location: /RocketSensorMVC/controller/tests.php?page=admin&action=3");
+		}
 	}
 
 	function testScore() {
@@ -275,30 +279,32 @@
 									if ($resultats = getResultatsTest($_POST['id'], $_GET['id'])) {
 										require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/tests/resultatsAffichage.php");
 									}
-
 									else {
 										header("Location: /RocketSensorMVC/controller/tests.php?page=resultats&action=1");
 									}	
 								}
-
 								else {
 									header("Location: /RocketSensorMVC/controller/tests.php?page=resultats&action=1");
 								}
 							}
-
 							else {
 								require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/tests/resultatsTemplate.php");
 							}
 						}
+						else {
+							header("Location: /RocketSensorMVC/controller/tests.php?page=resultats&action=1");
+						}
+					}
+					else {
+						header("Location: /RocketSensorMVC/controller/tests.php?page=resultats&action=1");
 					}
 				}
-
-
-			
-
 				else {
 					header("Location: /RocketSensorMVC/controller/tests.php?page=resultats&action=1");
 				}
+			}
+			else {
+				header("Location: /RocketSensorMVC/controller/tests.php?page=resultats&action=1");
 			}
 		}
 	}

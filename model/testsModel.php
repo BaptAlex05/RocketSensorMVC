@@ -70,7 +70,8 @@
 		$bdd = dbConnect();
 		$req = $bdd->prepare('DELETE FROM tests WHERE nom = :nom');
 	    $req->execute(array('nom' => $nom));
-	    
+
+	    return $req;
 	}
 
 	function testInsererScore ($id_utilisateur, $id_test, $score) {

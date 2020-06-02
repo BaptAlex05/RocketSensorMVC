@@ -2,7 +2,7 @@
 
 	<tr class="profil_ligne">
 		<td class="champ_profil">Auto-école</td>
-		<td><?= $utilisateur['id_autoecole'] ?></td>
+		<td><?= htmlspecialchars($utilisateur['id_autoecole']) ?></td>
 	</tr>
 
 <?php $autoecole = ob_get_clean(); ?>
