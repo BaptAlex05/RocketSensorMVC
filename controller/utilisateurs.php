@@ -31,6 +31,7 @@
 		$utilisateur = getUserProfil($_SESSION['id']);
 
 		if ($_SESSION['role'] == 'Élève' || $_SESSION['role'] == 'Moniteur') {
+			$autoecole = getAutoecole($utilisateur['id_autoecole']);
 			if (isset($_GET['action'])) {
 				if ($_GET['action'] == 1) {
 					$alerte = "Le profil a bien été modifié.";
@@ -56,6 +57,7 @@
 		$utilisateur = getUserModifierProfil($_SESSION['id']);
 
 		if ($_SESSION['role'] == 'Élève' || $_SESSION['role'] == 'Moniteur') {
+			$autoecole = getAutoecole($utilisateur['id_autoecole']);
 			require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/utilisateurs/profilModifierEleveMoniteur.php");
 		}
 
@@ -81,4 +83,5 @@
 	}
 
 	function utilisateursListe() {
+		
 	}

@@ -5,7 +5,7 @@
 			<ul>
 				<li><a href="profil.php">Mon profil</a></li>
 				<li><a href="utilisateurs.php">Liste des utilisateurs</a></li>
-				<li><a href="liste_autoecoles.php">Liste des auto-écoles</a></li>
+				<li><a href="/RocketSensorMVC/controller/autoecoles.php">Liste des auto-écoles</a></li>
 				<li><a href="/RocketSensorMVC/controller/tests.php?page=admin">Gestion des tests</a></li>
 				<li><a href="/RocketSensorMVC/controller/faq.php?page=admin">Gérer la FAQ</a></li>
 				<li><a href="/RocketSensorMVC/controller/contact.php?page=admin">Messagerie</a></li>

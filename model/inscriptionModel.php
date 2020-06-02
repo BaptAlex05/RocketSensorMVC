@@ -50,3 +50,10 @@
 		$req = $bdd->prepare('UPDATE utilisateurs SET actif = 1 WHERE mail = ?');
 		$req->execute(array($mail));
 	}
+
+	function getAutoecoles() {
+		$bdd = dbConnect();
+		$autoecoles = $bdd->query('SELECT id, nom, ville FROM autoecoles');
+
+		return $autoecoles;
+	}
