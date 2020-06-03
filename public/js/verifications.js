@@ -11,6 +11,7 @@ nom.addEventListener('blur', verificationNom);
 prenom.addEventListener('blur', verificationPrenom);
 mail.addEventListener('blur', verifMail);
 motDePasse_bis.addEventListener('input', confirmation_MotDePasse);
+motDePasse_bis.addEventListener('blur', confirmation_MotDePasse_alerte);
 
 
 function verificationNom() {
@@ -49,5 +50,11 @@ function confirmation_MotDePasse() {
 	}
 	else{
 		motDePasse_bis.style.color = "red";
+	}
+}
+
+function confirmation_MotDePasse_alerte() {
+	if (motDePasse_bis.value != motDePasse.value) {
+		alert("Les mots de passe saisis ne sont pas identiques");
 	}
 }
