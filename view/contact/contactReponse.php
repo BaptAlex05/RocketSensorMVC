@@ -10,7 +10,7 @@
 
 		<div id= "contact_admin_reponse">
 
-			<p><a href="/RocketSensorMVC/controller/contact.php?page=admin">Retour à la liste des messages</a></p>
+			<p><a href="/RocketSensorMVC/index.php?section=contact&page=admin">Retour à la liste des messages</a></p>
 
 
 			<div id ="contact_admin_reponse_message">
@@ -26,7 +26,7 @@
 			</div>
 
 
-			<form method="post" action="/RocketSensorMVC/controller/contact.php?page=reponseTraitement&id=<?= $_GET['id'] ?>">
+			<form method="post" action="/RocketSensorMVC/index.php?section=contact&page=reponseTraitement&id=<?= $_GET['id'] ?>">
 				<label for="reponse">Réponse</label><br/>
 				<textarea name="reponse"></textarea>
 

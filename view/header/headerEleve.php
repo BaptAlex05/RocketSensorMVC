@@ -3,10 +3,10 @@
 		<p><?= $_SESSION['prenom']?> <span class="nom"><?= $_SESSION['nom']?></span> ▾</p>
 		<div class="sous_menu_utilisateur">
 			<ul>
-				<li><a href="profil.php">Mon profil</a></li>
-				<li><a href="/RocketSensorMVC/controller/tests.php?page=eleve">Mes tests</a></li>
-				<li><a href="/RocketSensorMVC/controller/tests.php?page=resultats">Synthèse des résultats</a></li>
-				<li><a href="/RocketSensorMVC/controller/connexion.php?page=deconnexion">Se déconnecter</a></li>
+				<li><a href="/RocketSensorMVC/index.php?section=utilisateurs&page=profil">Mon profil</a></li>
+				<li><a href="/RocketSensorMVC/index.php?section=tests">Mes tests</a></li>
+				<li><a href="/RocketSensorMVC/index.php?section=tests&page=resultats">Synthèse des résultats</a></li>
+				<li><a href="/RocketSensorMVC/index.php?section=connexion&page=deconnexion">Se déconnecter</a></li>
 			</ul>
 		</div>
 	</div>

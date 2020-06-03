@@ -13,7 +13,7 @@
         <p class="alerte"><?= $alerte ?></p>
       <?php } ?>
 
-      <p id="retour_liste_autoecoles"><a href="/RocketSensorMVC/controller/autoecoles.php">Retour à la liste des auto-écoles</a></p>
+      <p id="retour_liste_autoecoles"><a href="/RocketSensorMVC/index.php?section=autoecoles">Retour à la liste des auto-écoles</a></p>
 
       <p>
         <table>
@@ -42,8 +42,8 @@
       </p>
 
       <div class="bouton">
-        <a href="/RocketSensorMVC/controller/autoecoles.php?page=modifier&id=<?= $autoecole['id'] ?>">Éditer</a>
-        <a href="/RocketSensorMVC/controller/autoecoles.php?page=supprimer&id=<?= $autoecole['id'] ?>" id="supprimer">Supprimer</a>
+        <a href="/RocketSensorMVC/index.php?section=autoecoles&page=modifier&id=<?= $autoecole['id'] ?>">Éditer</a>
+        <a href="/RocketSensorMVC/index.php?section=autoecoles&page=supprimer&id=<?= $autoecole['id'] ?>" id="supprimer">Supprimer</a>
       </div>
 
   </section>

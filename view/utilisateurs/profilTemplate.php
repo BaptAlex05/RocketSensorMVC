@@ -41,7 +41,7 @@
 			</p>
 
 			<div class="bouton">
-				<a href="/RocketSensorMVC/controller/utilisateurs.php?page=modifier">Modifier le profil</a>
+				<a href="/RocketSensorMVC/index.php?section=utilisateurs&page=modifier">Modifier le profil</a>
 			</div>
 
 	</section>

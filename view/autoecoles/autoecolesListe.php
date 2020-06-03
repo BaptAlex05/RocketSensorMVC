@@ -29,7 +29,7 @@
                   while ($autoecole = $autoecoles -> fetch()) {          
                     if ($compteur % 2 == 0) {
             ?> 
-                  <tr class="line_pointer" onclick="document.location='/RocketSensorMVC/controller/autoecoles.php?page=autoecole&id=<?= $autoecole['id']; ?>';">
+                  <tr class="line_pointer" onclick="document.location='/RocketSensorMVC/index.php?section=autoecoles&page=autoecole&id=<?= $autoecole['id']; ?>';">
                     <td class="autoecole_colonne_boucle1"><?= htmlspecialchars($autoecole['nom']) ?></td>
                     <td class="autoecole_colonne_boucle1"><?= htmlspecialchars($autoecole['licence']) ?></td>
                     <td class="autoecole_colonne_boucle1"><?= htmlspecialchars($autoecole['adresse']) ?></td>
@@ -38,7 +38,7 @@
                   </tr>
 
             <?php } else { ?> 
-                  <tr class="line_pointer" onclick="document.location='/RocketSensorMVC/controller/autoecoles.php?page=autoecole&id=<?= $autoecole['id']; ?>';"> 
+                  <tr class="line_pointer" onclick="document.location='/RocketSensorMVC/index.php?section=autoecoles&page=autoecole&id=<?= $autoecole['id']; ?>';"> 
                     <td class="autoecole_colonne_boucle2"><?= htmlspecialchars($autoecole['nom']) ?></td>
                     <td class="autoecole_colonne_boucle2"><?= htmlspecialchars($autoecole['licence']) ?></td>
                     <td class="autoecole_colonne_boucle2"><?= htmlspecialchars($autoecole['adresse']) ?></td>
@@ -52,7 +52,7 @@
         </table>
 
         <div class="bouton">
-          <a href = "/RocketSensorMVC/controller/autoecoles.php?page=ajouter">Ajouter</a>
+          <a href = "/RocketSensorMVC/index.php?section=autoecoles&page=ajouter">Ajouter</a>
         </div>
 
 

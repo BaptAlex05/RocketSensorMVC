@@ -21,7 +21,7 @@
     </div>
 
     <div class="bouton">
-        <a href='tests.php'>Retour à la liste des tests</a>
+        <a href='/RocketSensorMVC/index.php?section=tests'>Retour à la liste des tests</a>
     </div>
 
   </section>

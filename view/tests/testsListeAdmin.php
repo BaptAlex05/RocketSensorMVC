@@ -31,18 +31,18 @@
               if ($compteur%2==0){
           ?>
 
-                <a href ="/RocketSensorMVC/controller/tests.php?page=test&id=<?= $test['id']; ?>">
-                <tr class="couleur1_tab" onclick="document.location='/RocketSensorMVC/controller/tests.php?page=test&id=<?= $test['id']; ?>';">
-                    <td class="tests_colonne1"><a href ="/RocketSensorMVC/controller/tests.php?page=test&id=<?= $test['id']; ?>"><?= htmlspecialchars($test['nom']) ?></a></td>
+                <a href ="/RocketSensorMVC/index.php?section=tests&page=test&id=<?= $test['id']; ?>">
+                <tr class="couleur1_tab" onclick="document.location='/RocketSensorMVC/index.php?section=tests&page=test&id=<?= $test['id']; ?>';">
+                    <td class="tests_colonne1"><a href ="/RocketSensorMVC/index.php?section=tests&page=test&id=<?= $test['id']; ?>"><?= htmlspecialchars($test['nom']) ?></a></td>
                     <td class="tests_colonne2"><?= htmlspecialchars($test['description']) ?></td>
                 </tr>
                 </a>
           
           <?php } else { ?>
 
-                <a href ="/RocketSensorMVC/controller/tests.php?page=test&id=<?= $test['id']; ?>">
-                <tr class="couleur2_tab" onclick="document.location='/RocketSensorMVC/controller/tests.php?page=test&id=<?= $test['id']; ?>';">
-                    <td class="tests_colonne1"> <a href ="/RocketSensorMVC/controller/tests.php?page=test&id=<?= $test['id']; ?>"><?= htmlspecialchars($test['nom']) ?> </a> </td>
+                <a href ="/RocketSensorMVC/index.php?section=tests&page=test&id=<?= $test['id']; ?>">
+                <tr class="couleur2_tab" onclick="document.location='/RocketSensorMVC/index.php?section=tests&page=test&id=<?= $test['id']; ?>';">
+                    <td class="tests_colonne1"> <a href ="/RocketSensorMVC/index.php?section=tests&page=test&id=<?= $test['id']; ?>"><?= htmlspecialchars($test['nom']) ?> </a> </td>
                     <td class="tests_colonne2"> <?= htmlspecialchars($test['description']) ?> </td>
                 </tr>
                 </a>
@@ -53,9 +53,9 @@
 
       <div id="test_administateur">
           <div class="bouton">
-            <a href = '/RocketSensorMVC/controller/tests.php?page=ajouter'>Ajouter</a>
-            <a href = '/RocketSensorMVC/controller/tests.php?page=modifier'>Editer</a>
-            <a href = '/RocketSensorMVC/controller/tests.php?page=supprimer'>Supprimer</a>
+            <a href = '/RocketSensorMVC/index.php?section=tests&page=ajouter'>Ajouter</a>
+            <a href = '/RocketSensorMVC/index.php?section=tests&page=modifier'>Editer</a>
+            <a href = '/RocketSensorMVC/index.php?section=tests&page=supprimer'>Supprimer</a>
           </div>
       </div>
     </section>

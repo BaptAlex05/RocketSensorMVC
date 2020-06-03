@@ -13,7 +13,7 @@
 			<p class="alerte"><?= $alerte ?></p>
 		<?php } ?>
 
-		<form method="post" action="/RocketSensorMVC/controller/connexion.php?page=nouveauMotDePasseTraitement&mail=<? htmlspecialchars($_GET['mail']) ?>" id="recuperation">
+		<form method="post" action="/RocketSensorMVC/index.php?section=connexion&page=nouveauMotDePasseTraitement&mail=<? htmlspecialchars($_GET['mail']) ?>" id="recuperation">
 				<p>
 					<label for="motdepasse">Nouveau mot de passe</label><br/>
 					<input type="password" name="motdepasse" id="motdepasse" class="motdepasse_recuperation" required/>

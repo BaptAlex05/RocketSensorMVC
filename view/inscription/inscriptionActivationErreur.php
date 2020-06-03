@@ -7,7 +7,7 @@
 
 	<section>
 		<p id='bien_inscrit'>Une erreur est survenue. Votre compte n'a pas pu être activé. <br/>
-			En cas de problème, vous pouvez <a href="/RocketSensorMVC/controller/contact.php">contacter l'administrateur</a>.</p>
+			En cas de problème, vous pouvez <a href="/RocketSensorMVC/index.php?section=contact">contacter l'administrateur</a>.</p>
 	</section>
 	
 <?php $content = ob_get_clean(); ?>

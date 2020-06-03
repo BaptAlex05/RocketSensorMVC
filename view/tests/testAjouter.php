@@ -12,7 +12,7 @@
     </div>
 
         <!-- Creation du formulaire contenants les champs obligatoires pour ajouter un test -->
-        <form action="/RocketSensorMVC/controller/tests.php?page=ajouterTraitement" method="post">
+        <form action="/RocketSensorMVC/index.php?section=tests&page=ajouterTraitement" method="post">
             <p>
                 <table id="profil_modifier_formulaire">
                   <tr>
@@ -45,7 +45,7 @@
                 </table>
                 <div class="bouton">
                     <input type="submit" value="Ajouter" />
-                    <a href = 'tests_admin.php'>Annuler</a>    
+                    <a href = '/RocketSensorMVC/index.php?section=tests&page=admin'>Annuler</a>    
                 </div>
             </p>
         </form>

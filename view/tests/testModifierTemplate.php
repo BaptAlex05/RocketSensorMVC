@@ -13,7 +13,7 @@
 
 
     <!-- Premier formulaire pour choisir le test à modifier -->
-    <form id="formulaire" action="/RocketSensorMVC/controller/tests.php?page=modifier" method="post">
+    <form id="formulaire" action="/RocketSensorMVC/index.php?section=tests&page=modifier" method="post">
       <table>
         <tr>
            <td class="champ_profil"><label for="id">Choisir un test</label></td>

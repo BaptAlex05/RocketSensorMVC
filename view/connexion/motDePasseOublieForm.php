@@ -14,7 +14,7 @@
 			<p class="alerte"><?= $alerte ?></p>
 		<?php } ?>
 
-		<form method="post" action="/RocketSensorMVC/controller/connexion.php?page=motDePasseOublieTraitement" id="connexion">
+		<form method="post" action="/RocketSensorMVC/index.php?section=connexion&page=motDePasseOublieTraitement" id="connexion">
 			<div id="formulaire_connexion">
 				<div id="formulaire_connexion">
 					<div>

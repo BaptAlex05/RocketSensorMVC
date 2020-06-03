@@ -1,16 +1,21 @@
 <?php
-	session_start();
 
 	require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/model/inscriptionModel.php");
 
-	if (!isset($_SESSION['id'])) {
-		if (isset($_GET['page'])) {
-			if ($_GET['page'] == "traitement") {
-				inscriptionFormTraitement();
-			}
+	function inscription() {
+		if (!isset($_SESSION['id'])) {
+			if (isset($_GET['page'])) {
+				if ($_GET['page'] == "traitement") {
+					inscriptionFormTraitement();
+				}
 
-			elseif ($_GET['page'] == "activation") {
-				inscriptionActivation();
+				elseif ($_GET['page'] == "activation") {
+					inscriptionActivation();
+				}
+
+				else {
+					inscriptionForm();
+				}
 			}
 
 			else {
@@ -19,12 +24,8 @@
 		}
 
 		else {
-			inscriptionForm();
+			header("Location: /RocketSensorMVC/index.php");
 		}
-	}
-
-	else {
-		header("Location: /RocketSensorMVC/index.php");
 	}
 
 	function inscriptionForm() { 
@@ -70,11 +71,11 @@
 		}
 
 		else {
-			header("Location: /RocketSensorMVC/controller/inscription.php?action=2");
+			header("Location: /RocketSensorMVC/index.php?section=inscription&action=2");
 		}
 
 		if (checkEmail($mail)) {
-			header("Location: /RocketSensorMVC/controller/inscription.php?action=1");
+			header("Location: /RocketSensorMVC/index.php?section=inscription&action=1");
 		}
 
 		else {

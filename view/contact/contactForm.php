@@ -14,7 +14,7 @@
 			<p class="alerte"><?= $alerte ?></p>
 		<?php } ?>
 
-		<form method="post" action="/RocketSensorMVC/controller/contact.php?page=traitement" id="inscription">
+		<form method="post" action="/RocketSensorMVC/index.php?section=contact&page=traitement" id="inscription">
 				<div id="formulaire_contact">
 					<div id="contact_colonne_1">
 						<p>

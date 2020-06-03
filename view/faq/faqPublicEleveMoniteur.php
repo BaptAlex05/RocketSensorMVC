@@ -28,7 +28,7 @@
 		<?php } ?>
 
 		<div class="bouton">
-			<a href="/RocketSensorMVC/controller/faq.php?page=question">Poser une question</a>
+			<a href="/RocketSensorMVC/index.php?section=faq&page=question">Poser une question</a>
 		</div>
 	
 	</section>

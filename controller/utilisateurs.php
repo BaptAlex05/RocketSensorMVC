@@ -1,44 +1,49 @@
 <?php
-	session_start();
 
 	require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/model/utilisateursModel.php");
 
-	if (isset($_SESSION['id'])) {
-		if (isset($_GET['page'])) {
-			if ($_GET['page'] =="profil") {
-				profil();
-			}
+	function utilisateurs() {
+		if (isset($_SESSION['id'])) {
+			if (isset($_GET['page'])) {
+				if ($_GET['page'] =="profil") {
+					profil();
+				}
 
-			elseif ($_GET['page'] == "modifier") {
-				profilModifier();
-			}
+				elseif ($_GET['page'] == "modifier") {
+					profilModifier();
+				}
 
-			elseif ($_GET['page'] == "traitement") {
-				profilModifierTraitement();
-			}
+				elseif ($_GET['page'] == "traitement") {
+					profilModifierTraitement();
+				}
 
-			elseif ($_GET['page'] == "utilisateur") {
-				utilisateurProfil();
-			}
+				elseif ($_GET['page'] == "utilisateur") {
+					utilisateurProfil();
+				}
 
-			elseif ($_GET['page'] == "utilisateurModifier") {
-				utilisateurModifierProfil();
-			}
+				elseif ($_GET['page'] == "utilisateurModifier") {
+					utilisateurModifierProfil();
+				}
 
-			elseif ($_GET['page'] == "utilisateurModifierTraitement") {
-				utilisateurModifierTraitement();
-			}
+				elseif ($_GET['page'] == "utilisateurModifierTraitement") {
+					utilisateurModifierTraitement();
+				}
 
-			elseif ($_GET['page'] == "utilisateurSupprimer") {
-				utilisateurSupprimer();
-			}
+				elseif ($_GET['page'] == "utilisateurSupprimer") {
+					utilisateurSupprimer();
+				}
 
-			elseif ($_GET['page'] == "bannir") {
-				utilisateurBannir();
-			}
+				elseif ($_GET['page'] == "bannir") {
+					utilisateurBannir();
+				}
 
-			elseif ($_GET['page'] == "debannir") {
-				utilisateurDebannir();
+				elseif ($_GET['page'] == "debannir") {
+					utilisateurDebannir();
+				}
+
+				else {
+					utilisateursListe();
+				}
 			}
 
 			else {
@@ -47,13 +52,10 @@
 		}
 
 		else {
-			utilisateursListe();
+			header("Location: /RocketSensorMVC/index.php?section=connexion");
 		}
 	}
 
-	else {
-		header("Location: /RocketSensorMVC/controller/connexion.php");
-	}
 
 	function profil() {
 		$utilisateur = getUserProfil($_SESSION['id']);
@@ -114,7 +116,7 @@
 		$_SESSION['prenom'] = $_POST['prenom'];
 		$_SESSION['nom'] = $_POST['nom'];
 
-		header("Location: /RocketSensorMVC/controller/utilisateurs.php?page=profil&action=1");
+		header("Location: /RocketSensorMVC/index.php?section=utilisateurs&page=profil&action=1");
 
 	}
 
@@ -140,7 +142,7 @@
 		}
 
 		else {
-			header("Location: /RocketSensorMVC/controller/utilisateurs.php?page=profil");
+			header("Location: /RocketSensorMVC/index.php?section=utilisateurs&page=profil");
 		}
 	}
 
@@ -148,7 +150,7 @@
 		if ($_SESSION['role'] == "Moniteur" || $_SESSION['role'] =="Administrateur") {
 			if (isset($_GET['id'])) {
 				if ($_GET['id'] == $_SESSION['id']) {
-					header("Location: /RocketSensorMVC/controller/utilisateurs.php?page=profil");
+					header("Location: /RocketSensorMVC/index.php?section=utilisateurs&page=profil");
 				}
 
 				else {
@@ -215,7 +217,7 @@
 			}
 
 			else {
-				header("Location: /RocketSensorMVC/controller/utilisateurs.php?action=1");
+				header("Location: /RocketSensorMVC/index.php?section=utilisateurs&action=1");
 			}
 		}
 
@@ -228,7 +230,7 @@
 		if ($_SESSION['role'] =="Administrateur") {
 			if (isset($_GET['id'])) {
 				if ($_GET['id'] == $_SESSION['id']) {
-					header("Location: /RocketSensorMVC/controller/utilisateurs.php?page=profil");
+					header("Location: /RocketSensorMVC/index.php?section=utilisateurs&page=profil");
 				}
 
 				else {
@@ -249,13 +251,13 @@
 					}
 
 					else {
-						header("Location: /RocketSensorMVC/controller/utilisateurs.php?action=1");
+						header("Location: /RocketSensorMVC/index.php?section=utilisateurs&action=1");
 					}
 				}
 			}
 
 			else {
-				header("Location: /RocketSensorMVC/controller/utilisateurs.php?action=1");
+				header("Location: /RocketSensorMVC/index.php?section=utilisateurs&action=1");
 			}
 		}
 
@@ -275,16 +277,16 @@
 
 		if (isset($_GET['id'])) {
 			if (updateUser($_GET['id'], $_POST['nom'], $_POST['prenom'], $_POST['mail'], $_POST['datenaissance'], $_POST['role'], $autoecole)) {
-				header('Location: /RocketSensorMVC/controller/utilisateurs.php?page=utilisateur&id='.$_GET['id'].'&action=1');
+				header('Location: /RocketSensorMVC/index.php?section=utilisateurs&page=utilisateur&id='.$_GET['id'].'&action=1');
 			}
 
 			else {
-				header('Location: /RocketSensorMVC/controller/utilisateurs.php?page=utilisateur&id='.$_GET['id'].'&action=3');
+				header('Location: /RocketSensorMVC/index.php?section=utilisateurs&page=utilisateur&id='.$_GET['id'].'&action=3');
 			}
 		}
 
 		else {
-			header("Location: /RocketSensorMVC/controller/utilisateurs.php?action=1");
+			header("Location: /RocketSensorMVC/index.php?section=utilisateurs&action=1");
 		}
 	}
 
@@ -292,16 +294,16 @@
 		if ($_SESSION['role'] == "Administrateur") {
 			if (isset($_GET['id'])) {
 				if (supprimerUser($_GET['id'])) {
-					header("Location: /RocketSensorMVC/controller/utilisateurs.php?action=2");
+					header("Location: /RocketSensorMVC/index.php?section=utilisateurs&action=2");
 				}
 
 				else {
-					header('Location: /RocketSensorMVC/controller/utilisateurs.php?page=utilisateur&id='.$_GET['id'].'&action=3');
+					header('Location: /RocketSensorMVC/index.php?section=utilisateurs&page=utilisateur&id='.$_GET['id'].'&action=3');
 				}
 			}
 
 			else {
-				header("Location: /RocketSensorMVC/controller/utilisateurs.php?action=1");
+				header("Location: /RocketSensorMVC/index.php?section=utilisateurs&action=1");
 			}
 		}
 
@@ -314,16 +316,16 @@
 		if ($_SESSION['role'] =="Administrateur") {
 			if (isset($_GET['id'])) {
 				if (setActif($_GET['id'], 2)) {
-					header('Location: /RocketSensorMVC/controller/utilisateurs.php?page=utilisateur&id='.$_GET['id'].'&action=2');
+					header('Location: /RocketSensorMVC/index.php?section=utilisateurs&page=utilisateur&id='.$_GET['id'].'&action=2');
 				}
 
 				else {
-					header('Location: /RocketSensorMVC/controller/utilisateurs.php?page=utilisateur&id='.$_GET['id'].'&action=3');
+					header('Location: /RocketSensorMVC/index.php?section=utilisateurs&page=utilisateur&id='.$_GET['id'].'&action=3');
 				}
 			}
 
 			else {
-				header("Location: /RocketSensorMVC/controller/utilisateurs.php?action=1");
+				header("Location: /RocketSensorMVC/index.php?section=utilisateurs&action=1");
 			}
 		}
 
@@ -336,16 +338,16 @@
 		if ($_SESSION['role'] =="Administrateur") {
 			if (isset($_GET['id'])) {
 				if (setActif($_GET['id'], 1)) {
-					header('Location: /RocketSensorMVC/controller/utilisateurs.php?page=utilisateur&id='.$_GET['id'].'&action=4');
+					header('Location: /RocketSensorMVC/index.php?section=utilisateurs&page=utilisateur&id='.$_GET['id'].'&action=4');
 				}
 
 				else {
-					header('Location: /RocketSensorMVC/controller/utilisateurs.php?page=utilisateur&id='.$_GET['id'].'&action=3');
+					header('Location: /RocketSensorMVC/index.php?section=utilisateurs&page=utilisateur&id='.$_GET['id'].'&action=3');
 				}
 			}
 
 			else {
-				header("Location: /RocketSensorMVC/controller/utilisateurs.php?action=1");
+				header("Location: /RocketSensorMVC/index.php?section=utilisateurs&action=1");
 			}
 		}
 

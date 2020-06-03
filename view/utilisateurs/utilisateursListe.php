@@ -25,7 +25,7 @@
 				while ($utilisateur = $utilisateurs->fetch()) {
 					if ($compteur % 2 == 0) {
 			?> 
-						<tr class="line_pointer" onclick="document.location='/RocketSensorMVC/controller/utilisateurs.php?page=utilisateur&id=<?= $utilisateur['id']; ?>';">
+						<tr class="line_pointer" onclick="document.location='/RocketSensorMVC/index.php?section=utilisateurs&page=utilisateur&id=<?= $utilisateur['id']; ?>';">
 							<td class="utilisateurs_colonne_boucle1"><?= htmlspecialchars($utilisateur['nom']) ?></td>
 							<td class="utilisateurs_colonne_boucle1"><?= htmlspecialchars($utilisateur['prenom']) ?></td>
 							<td class="utilisateurs_colonne_boucle1"><?= htmlspecialchars($utilisateur['datenaissance']) ?></td>
@@ -34,7 +34,7 @@
 						</tr>
 
 			<?php } else { ?> 
-        				<tr class="line_pointer" onclick="document.location='/RocketSensorMVC/controller/utilisateurs.php?page=utilisateur&id=<?= $utilisateur['id']; ?>';">
+        				<tr class="line_pointer" onclick="document.location='/RocketSensorMVC/index.php?section=utilisateurs&page=utilisateur&id=<?= $utilisateur['id']; ?>';">
         					<td class="utilisateurs_colonne_boucle2"><?= htmlspecialchars($utilisateur['nom']) ?></td>
 							<td class="utilisateurs_colonne_boucle2"><?= htmlspecialchars($utilisateur['prenom']) ?></td>
 							<td class="utilisateurs_colonne_boucle2"><?= htmlspecialchars($utilisateur['datenaissance']) ?></td>

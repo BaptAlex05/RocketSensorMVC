@@ -1,7 +1,7 @@
 <?php ob_start(); ?>
 
   <!-- Deuxième formulaire pour modifier les valeurs des champs préremplis -->
-  <form action="/RocketSensorMVC/controller/tests.php?page=modifierTraitement&id=<?=$test['id'] ?>" method="post">
+  <form action="/RocketSensorMVC/index.php?section=tests&page=modifierTraitement&id=<?=$test['id'] ?>" method="post">
     <p>
       <table id="profil_modifier_formulaire">
 
@@ -36,7 +36,7 @@
       </table>
       <div class="bouton">
           <input type="submit" value="Editer" />
-          <a href = 'tests_admin.php'>Annuler</a>
+          <a href = '/RocketSensorMVC/index.php?section=tests'>Annuler</a>
       </div>
     </p>
   </form>

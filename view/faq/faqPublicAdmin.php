@@ -24,8 +24,8 @@
 				</div>
 
 				<div class="faq_boutons">
-					<p><a href="/RocketSensorMVC/controller/faq.php?page=supprimer&id=<?= htmlspecialchars($question['id']); ?>">Supprimer</a></p> 
-					<p><a href="/RocketSensorMVC/controller/faq.php?page=modifier&id=<?= htmlspecialchars($question['id']); ?>">Modifier</a></p>
+					<p><a href="/RocketSensorMVC/index.php?section=faq&page=supprimer&id=<?= htmlspecialchars($question['id']); ?>">Supprimer</a></p> 
+					<p><a href="/RocketSensorMVC/index.php?section=faq&page=modifier&id=<?= htmlspecialchars($question['id']); ?>">Modifier</a></p>
 				</div>
 					
 			</div>
@@ -33,7 +33,7 @@
 		<?php } ?>
 
 		<div class="bouton">
-			<a href="/RocketSensorMVC/controller/faq.php?page=admin">Gérer la FAQ</a>
+			<a href="/RocketSensorMVC/index.php?section=faq&page=admin">Gérer la FAQ</a>
 		</div>
 	
 	</section>

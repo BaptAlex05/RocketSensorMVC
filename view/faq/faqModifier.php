@@ -7,9 +7,9 @@
 	<section>	
 		<h1>Modifier la question/réponse</h1>
 		<div class="faq_ajouter">
-			<p><a href="/RocketSensorMVC/controller/faq.php">Retour à la FAQ</a></p>
+			<p><a href="/RocketSensorMVC/index.php?section=faq">Retour à la FAQ</a></p>
 
-			<form method="post" action="/RocketSensorMVC/controller/faq.php?page=modifierTraitement&id=<?=$_GET['id']?>">
+			<form method="post" action="/RocketSensorMVC/index.php?section=faq&page=modifierTraitement&id=<?=$_GET['id']?>">
 				<label for="question">Question</label><br/>
 				<textarea name="question"><?= htmlspecialchars($resultat['question']) ;?></textarea><br/>
 

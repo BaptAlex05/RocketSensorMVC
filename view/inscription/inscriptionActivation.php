@@ -7,7 +7,7 @@
 
 	<section>
 		<p id='bien_inscrit'>Félicitations ! Votre compte a bien été activé. <br/>
-			Vous pouvez dès à présent <a href="/RocketSensorMVC/controller/connexion.php">vous connecter</a>.</p>
+			Vous pouvez dès à présent <a href="/RocketSensorMVC/index.php?section=connexion">vous connecter</a>.</p>
 	</section>
 	
 <?php $content = ob_get_clean(); ?>

@@ -44,29 +44,29 @@
 			<div id="utilisateur_boutons">
 				<?php if(isset($boutons_modifier_supprimer)) { ?>
 					<div class="bouton">
-						<a href="/RocketSensorMVC/controller/utilisateurs.php?page=utilisateurModifier&id=<?=$_GET['id'];?>">Modifier le profil</a>
+						<a href="/RocketSensorMVC/index.php?section=utilisateurs&page=utilisateurModifier&id=<?=$_GET['id'];?>">Modifier le profil</a>
 					</div>
 
 					<div class="bouton">
-						<a id = "supprimer" href="/RocketSensorMVC/controller/utilisateurs.php?page=utilisateurSupprimer&id=<?= $_GET['id'] ?>">Supprimer</a>
+						<a id = "supprimer" href="/RocketSensorMVC/index.php?section=utilisateurs&page=utilisateurSupprimer&id=<?= $_GET['id'] ?>">Supprimer</a>
 					</div>
 				<?php } ?>
 
 				<?php if (isset($bouton_bannir)) { ?>
 					<div class="bouton">
-						<a href="/RocketSensorMVC/controller/utilisateurs.php?page=bannir&id=<?= $_GET['id'] ?>">Bannir</a>
+						<a href="/RocketSensorMVC/index.php?section=utilisateurs&page=bannir&id=<?= $_GET['id'] ?>">Bannir</a>
 					</div>
 				<?php } ?>
 
 				<?php if (isset($bouton_debannir)) { ?>
 					<div class="bouton">
-						<a href="/RocketSensorMVC/controller/utilisateurs.php?page=debannir&id=<?= $_GET['id'] ?>">Débannir</a>
+						<a href="/RocketSensorMVC/index.php?section=utilisateurs&page=debannir&id=<?= $_GET['id'] ?>">Débannir</a>
 					</div>
 				<?php } ?>
 
 				<?php if (isset($bouton_resultats)) { ?>
 					<div class="bouton">
-						<a href="/RocketSensorMVC/controller/tests.php?page=resultats&id=<?=$_GET['id'];?>">Voir ses résultats aux tests</a>
+						<a href="/RocketSensorMVC/index.php?section=utilisateurs&page=resultats&id=<?=$_GET['id'];?>">Voir ses résultats aux tests</a>
 					</div>
 				<?php } ?>
 			</div>

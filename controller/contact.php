@@ -1,38 +1,39 @@
 <?php 
-	session_start();
 
 	require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/model/contactModel.php");
 
-	if (isset($_GET['page'])) {
-		if ($_GET['page'] == "traitement") {
-			contactTraitement();
-		}
+	function contact() {
+		if (isset($_GET['page'])) {
+			if ($_GET['page'] == "traitement") {
+				contactTraitement();
+			}
 
-		elseif ($_GET['page'] == "admin") {
-			messagerieAdmin();
-		}
+			elseif ($_GET['page'] == "admin") {
+				messagerieAdmin();
+			}
 
-		elseif ($_GET['page'] == "reponse") {
-			envoyerReponse();
-		}
+			elseif ($_GET['page'] == "reponse") {
+				envoyerReponse();
+			}
 
-		elseif ($_GET['page'] == "reponseTraitement") {
-			reponseTraitement();
-		}
+			elseif ($_GET['page'] == "reponseTraitement") {
+				reponseTraitement();
+			}
 
-		elseif ($_GET['page'] == "supprimer") {
-			supprimerMessage();
+			elseif ($_GET['page'] == "supprimer") {
+				supprimerMessage();
+			}
+
+			else {
+				contactForm();
+			}
+					
 		}
 
 		else {
 			contactForm();
+
 		}
-				
-	}
-
-	else {
-		contactForm();
-
 	}
 
 	function contactForm() {
@@ -61,11 +62,11 @@
 
 	function contactTraitement() {
 		if (ajouterMessage(strtoupper($_POST['nom']), $_POST['prenom'], $_POST['mail'], $_POST['message'])) {
-			header("Location: /RocketSensorMVC/controller/contact.php?action=1");
+			header("Location: /RocketSensorMVC/index.php?section=contact&action=1");
 		}
 
 		else {
-			header("Location: /RocketSensorMVC/controller/contact.php?action=2");
+			header("Location: /RocketSensorMVC/index.php?section=contact&action=2");
 		}
 	}
 
@@ -100,7 +101,7 @@
 		}
 
 		else {
-			header("Location: /RocketSensorMVC/controller/contact.php");
+			header("Location: /RocketSensorMVC/index.php?section=contact");
 		}
 	}
 
@@ -112,17 +113,17 @@
 				}
 
 				else {
-					header("Location: /RocketSensorMVC/controller/contact.php?page=admin&action=2");
+					header("Location: /RocketSensorMVC/index.php?section=contact&page=admin&action=2");
 				}
 			}
 
 			else {
-				header("Location: /RocketSensorMVC/controller/contact.php?page=admin&action=2");
+				header("Location: /RocketSensorMVC/index.php?section=contact&page=admin&action=2");
 			}
 		}
 		
 		else {
-			header("Location: /RocketSensorMVC/controller/contact.php");
+			header("Location: /RocketSensorMVC/index.php?section=contact");
 		}
 	}
 
@@ -150,28 +151,28 @@
 					$result = file_get_contents($url, false, $context);
 
 					if (supprimerContact($_GET['id'])) {
-						header("Location: /RocketSensorMVC/controller/contact.php?page=admin&action=1");
+						header("Location: /RocketSensorMVC/index.php?section=contact&page=admin&action=1");
 					}
 
 					else {
-						header("Location: /RocketSensorMVC/controller/contact.php?page=admin&action=2");
+						header("Location: /RocketSensorMVC/index.php?section=contact&page=admin&action=2");
 					}
 
 				}
 
 				else {
-					header("Location: /RocketSensorMVC/controller/contact.php?page=admin&action=2");
+					header("Location: /RocketSensorMVC/index.php?section=contact&page=admin&action=2");
 				}
 			}
 
 			else {
-				header("Location: /RocketSensorMVC/controller/contact.php?page=admin&action=2");
+				header("Location: /RocketSensorMVC/index.php?section=contact&page=admin&action=2");
 			}
 			
 		}
 
 		else {
-			header("Location: /RocketSensorMVC/controller/contact.php");
+			header("Location: /RocketSensorMVC/index.php?section=contact");
 		}		
 	}
 
@@ -179,20 +180,20 @@
 		if (isset($_SESSION['id']) && $_SESSION['role'] == "Administrateur") {
 			if (isset($_GET['id'])) {
 				if (supprimerContact($_GET['id'])) {
-					header("Location: /RocketSensorMVC/controller/contact.php?page=admin&action=3");
+					header("Location: /RocketSensorMVC/index.php?section=contact&page=admin&action=3");
 				}
 
 				else {
-					header("Location: /RocketSensorMVC/controller/contact.php?page=admin&action=2");
+					header("Location: /RocketSensorMVC/index.php?section=contact&page=admin&action=2");
 				}
 			}
 
 			else {
-				header("Location: /RocketSensorMVC/controller/contact.php?page=admin&action=2");
+				header("Location: /RocketSensorMVC/index.php?section=contact&page=admin&action=2");
 			}
 		}
 		
 		else {
-			header("Location: /RocketSensorMVC/controller/contact.php");
+			header("Location: /RocketSensorMVC/index.php?section=contact");
 		}
 	}

@@ -1,7 +1,7 @@
 <?php ob_start(); ?>
 
 	<div class="accueil_lien_utile">
-		<a href="/RocketSensorMVC/controller/utilisateurs.php?page=profil">
+		<a href="/RocketSensorMVC/index.php?section=utilisateurs&page=profil">
 			<p><img src="/RocketSensorMVC/public/images/profil.png"></p>
 			<h3>Profil</h3>
 		</a>

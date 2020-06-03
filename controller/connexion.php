@@ -1,28 +1,33 @@
 <?php 
-	session_start();
 
 	require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/model/connexionModel.php");
 
-	if (!isset($_SESSION['id'])) {
-		if (isset($_GET['page'])) {
-			if ($_GET['page'] == "traitement") {
-				connexionFormTraitement();
-			}
+	function connexion() {
+		if (!isset($_SESSION['id'])) {
+			if (isset($_GET['page'])) {
+				if ($_GET['page'] == "traitement") {
+					connexionFormTraitement();
+				}
 
-			elseif ($_GET['page'] == "motdepasseoublie") {
-				motDePasseOublie();
-			}
+				elseif ($_GET['page'] == "motdepasseoublie") {
+					motDePasseOublie();
+				}
 
-			elseif ($_GET['page'] == "motDePasseOublieTraitement") {
-				motDePasseOublieTraitement();
-			}
+				elseif ($_GET['page'] == "motDePasseOublieTraitement") {
+					motDePasseOublieTraitement();
+				}
 
-			elseif ($_GET['page'] == "nouveaumotdepasse") {
-				nouveauMotDePasse();
-			}
+				elseif ($_GET['page'] == "nouveaumotdepasse") {
+					nouveauMotDePasse();
+				}
 
-			elseif ($_GET['page'] == "nouveauMotDePasseTraitement") {
-				nouveauMotDePasseTraitement();
+				elseif ($_GET['page'] == "nouveauMotDePasseTraitement") {
+					nouveauMotDePasseTraitement();
+				}
+
+				else {
+					connexionForm();
+				}
 			}
 
 			else {
@@ -31,18 +36,14 @@
 		}
 
 		else {
-			connexionForm();
-		}
-	}
 
-	else {
+			if (isset($_GET['page']) && $_GET['page'] == "deconnexion") {
+					deconnexion();
+			}
 
-		if (isset($_GET['page']) && $_GET['page'] == "deconnexion") {
-				deconnexion();
-		}
-
-		else {
-			header("Location: /RocketSensorMVC/index.php");
+			else {
+				header("Location: /RocketSensorMVC/index.php");
+			}
 		}
 	}
 
@@ -93,11 +94,11 @@
 			$utilisateur = getUser($_POST['mail']);
 
 			if ($utilisateur['actif'] == 0) {
-				header("Location: /RocketSensorMVC/controller/connexion.php?action=2");
+				header("Location: /RocketSensorMVC/index.php?section=connexion&action=2");
 			}
 
 			elseif ($utilisateur['actif'] == 2) {
-				header("Location: /RocketSensorMVC/controller/connexion.php?action=3");
+				header("Location: /RocketSensorMVC/index.php?section=connexion&action=3");
 			}
 
 			else {
@@ -113,13 +114,13 @@
 				}
 
 				else {
-					header("Location: /RocketSensorMVC/controller/connexion.php?action=1");
+					header("Location: /RocketSensorMVC/index.php?section=connexion&action=1");
 				}
 			}
 		}
 
 		else {
-			header("Location: /RocketSensorMVC/controller/connexion.php?action=1");
+			header("Location: /RocketSensorMVC/index.php?section=connexion&action=1");
 		}
 	}
 
@@ -185,7 +186,7 @@
 		}
 
 		else {
-			header("Location: /RocketSensorMVC/controller/connexion.php?page=motdepasseoublie&action=1");
+			header("Location: /RocketSensorMVC/index.php?section=connexion&page=motdepasseoublie&action=1");
 		}
 	}
 
@@ -204,17 +205,17 @@
 				}
 
 				else {
-					header("Location: /RocketSensorMVC/controller/connexion.php?page=motdepasseoublie&action=2");
+					header("Location: /RocketSensorMVC/index.php?section=connexion&page=motdepasseoublie&action=2");
 				}
 			}
 
 			else {
-				header("Location: /RocketSensorMVC/controller/connexion.php?page=motdepasseoublie&action=2");
+				header("Location: /RocketSensorMVC/index.php?section=connexion&page=motdepasseoublie&action=2");
 			}
 		}
 
 		else {
-			header("Location: /RocketSensorMVC/controller/connexion.php?page=motdepasseoublie&action=2");
+			header("Location: /RocketSensorMVC/index.php?section=connexion&page=motdepasseoublie&action=2");
 		}
 	}
 	
@@ -223,20 +224,20 @@
 			if ($_POST['motdepasse'] == $_POST['motdepasse_bis']) {
 				$motdepasse_hash = password_hash($_POST['motdepasse'],PASSWORD_DEFAULT);
 				if (setPassword($_POST['mail'], $motdepasse_hash)) {
-					header("Location: /RocketSensorMVC/controller/connexion.php?action=6");
+					header("Location: /RocketSensorMVC/index.php?section=connexion&action=6");
 				}
 
 				else {
-					header("Location: /RocketSensorMVC/controller/connexion.php?page=motDePasseOublie&action=2");
+					header("Location: /RocketSensorMVC/index.php?section=connexion&page=motDePasseOublie&action=2");
 				}
 			}
 
 			else {
-				header("Location: /RocketSensorMVC/controller/connexion.php?page=nouveauMotDePasse&action=1");
+				header("Location: /RocketSensorMVC/index.php?section=connexion&page=nouveauMotDePasse&action=1");
 			}
 		}
 
 		else {
-			header("Location: /RocketSensorMVC/controller/connexion.php?page=motDePasseOublie&action=2");
+			header("Location: /RocketSensorMVC/index.php?section=connexion&page=motDePasseOublie&action=2");
 		}
 	}

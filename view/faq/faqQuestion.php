@@ -11,7 +11,7 @@
 
 			<p>Vous pouvez poser une question grâce au formulaire ci-dessous. Celle-ci sera ensuite traitée par un administrateur et publiée avec une réponse sur la <a href="faq.php">page de la FAQ</a> si celle-ci est jugée utile. Pour toute question ou demande personnelle, merci d'utiliser le <a href="contact.php">formulaire de contact</a>.</p>
 
-			<form method="post" action="/RocketSensorMVC/controller/faq.php?page=questionTraitement">
+			<form method="post" action="/RocketSensorMVC/index.php?section=faq&page=questionTraitement">
 				
 				<textarea name="question"></textarea>
 

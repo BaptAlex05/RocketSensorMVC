@@ -14,7 +14,7 @@
 			<p class="alerte"><?= $alerte ?></p>
 		<?php } ?>
 
-		<form method="post" action="/RocketSensorMVC/controller/connexion.php?page=traitement" id="connexion">
+		<form method="post" action="/RocketSensorMVC/index.php?section=connexion&page=traitement" id="connexion">
 			<div id="formulaire_connexion">
 				<div id="formulaire_connexion">
 					<div>
@@ -22,7 +22,7 @@
 						<input type="mail" name="mail" id="mail"></p>
 				    	<p><label for="motdepasse">Mot de passe</label></br>
 						<input type="password" name="motdepasse" id="motdepasse"></p>
-						<p><a href="/RocketSensorMVC/controller/connexion.php?page=motdepasseoublie">Mot de passe oublié ?</a></p>
+						<p><a href="/RocketSensorMVC/index.php?section=connexion&page=motdepasseoublie">Mot de passe oublié ?</a></p>
 					</div>
 			    </div>
 			</div>

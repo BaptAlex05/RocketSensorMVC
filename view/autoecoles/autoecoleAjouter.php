@@ -8,9 +8,9 @@
 	<section>
     <h1>Ajouter une auto-école</h1>
 
-     <p id="retour_liste_autoecoles"><a href="/RocketSensorMVC/controller/autoecoles.php">Retour à la liste des auto-écoles</a></p>
+     <p id="retour_liste_autoecoles"><a href="/RocketSensorMVC/index.php?section=autoecoles">Retour à la liste des auto-écoles</a></p>
 
-    <form action="/RocketSensorMVC/controller/autoecoles.php?page=ajouterTraitement" method="post">
+    <form action="/RocketSensorMVC/index.php?section=autoecoles&page=ajouterTraitement" method="post">
         <p>
             <table id="profil_modifier_formulaire">
               <tr>

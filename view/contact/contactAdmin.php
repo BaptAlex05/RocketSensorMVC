@@ -37,10 +37,10 @@
 
 				<div class="contact_admin_boutons">
 					<div class="bouton">
-						<a href="/RocketSensorMVC/controller/contact.php?page=reponse&id=<?=htmlspecialchars($message['id']);?>">Répondre</a>
+						<a href="/RocketSensorMVC/index.php?section=contact&page=reponse&id=<?=htmlspecialchars($message['id']);?>">Répondre</a>
 					</div>
 					<div class="bouton">
-						<a id = "supprimer" href="/RocketSensorMVC/controller/contact.php?page=supprimer&id=<?=htmlspecialchars($message['id']);?>">Supprimer</a>
+						<a id = "supprimer" href="/RocketSensorMVC/index.php?section=contact&page=supprimer&id=<?=htmlspecialchars($message['id']);?>">Supprimer</a>
 					</div>
 				</div>
 			</div>

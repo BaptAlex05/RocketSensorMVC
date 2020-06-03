@@ -15,7 +15,7 @@
 			<p class="alerte"><?= $alerte ?></p>
 		<?php } ?>
 
-		<form method="post" action="/RocketSensorMVC/controller/inscription.php?page=traitement" id="inscription">
+		<form method="post" action="/RocketSensorMVC/index.php?section=inscription&page=traitement" id="inscription">
 			<div id="formulaire_inscription">
 				<div id="inscription_colonne_1">
 					 <p>
@@ -73,7 +73,7 @@
 			</div>
 		</form>
 
-		<p id="deja_inscrit">Déjà inscrit ? <a href="connexion.php">Connectez-vous</a></p>
+		<p id="deja_inscrit">Déjà inscrit ? <a href="/RocketSensorMVC/index.php?section=connexion">Connectez-vous</a></p>
 	</section>
 
 <?php $content = ob_get_clean(); ?>

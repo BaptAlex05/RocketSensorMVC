@@ -6,7 +6,7 @@
 <?php ob_start(); ?>	
 	<section>	
 		<h1>Modifier le profil</h1>
-		<form action="/RocketSensorMVC/controller/utilisateurs.php?page=utilisateurModifierTraitement&id=<?= $_GET['id'] ?>" method="post">
+		<form action="/RocketSensorMVC/index.php?section=utilisateurs&page=utilisateurModifierTraitement&id=<?= $_GET['id'] ?>" method="post">
 			<p>
 				<table id="profil_modifier_formulaire">
 				   <tr>

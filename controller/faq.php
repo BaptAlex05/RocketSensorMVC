@@ -1,49 +1,49 @@
 <?php
 
-	session_start();
-
 	require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/model/faqModel.php");
 
-	if (isset($_GET['page'])) {
-		if ($_GET['page'] == "question") {
-			poserQuestion();
-		}
+	function faq() {
+		if (isset($_GET['page'])) {
+			if ($_GET['page'] == "question") {
+				poserQuestion();
+			}
 
-		elseif ($_GET['page'] == "questionTraitement") {
-			questionTraitement();
-		}
+			elseif ($_GET['page'] == "questionTraitement") {
+				questionTraitement();
+			}
 
-		elseif ($_GET['page'] == "admin") {
-			faqAdmin();
-		}
+			elseif ($_GET['page'] == "admin") {
+				faqAdmin();
+			}
 
-		elseif ($_GET['page'] == "reponse") {
-			posterReponse();
-		}
+			elseif ($_GET['page'] == "reponse") {
+				posterReponse();
+			}
 
-		elseif ($_GET['page'] == "reponseTraitement") {
-			reponseTraitement();
-		}
+			elseif ($_GET['page'] == "reponseTraitement") {
+				reponseTraitement();
+			}
 
-		elseif ($_GET['page'] == "supprimer") {
-			supprimerTraitement();
-		}
+			elseif ($_GET['page'] == "supprimer") {
+				supprimerTraitement();
+			}
 
-		elseif ($_GET['page'] == "modifier") {
-			modifierQuestionReponse();
-		}
+			elseif ($_GET['page'] == "modifier") {
+				modifierQuestionReponse();
+			}
 
-		elseif ($_GET['page'] == "modifierTraitement") {
-			modifierTraitement();
+			elseif ($_GET['page'] == "modifierTraitement") {
+				modifierTraitement();
+			}
+
+			else {
+				faqListe();
+			}
 		}
 
 		else {
 			faqListe();
 		}
-	}
-
-	else {
-		faqListe();
 	}
 
 	function faqListe() {
@@ -89,23 +89,23 @@
 			}
 
 			else {
-				header("Location: /RocketSensorMVC/controller/faq.php");
+				header("Location: /RocketSensorMVC/index.php?section=faq");
 			}
 
 		}
 
 		else {
-			header("Location: /RocketSensorMVC/controller/connexion.php");
+			header("Location: /RocketSensorMVC/index.php?section=connexion");
 		}
 	}
 
 	function questionTraitement() {
 		if (ajouterQuestion($_POST['question'])) {
-			header("Location: /RocketSensorMVC/controller/faq.php?action=2");
+			header("Location: /RocketSensorMVC/index.php?section=faq&action=2");
 		}
 
 		else {
-			header("Location: /RocketSensorMVC/controller/faq.php?action=1");
+			header("Location: /RocketSensorMVC/index.php?section=faq&action=1");
 		}
 	}
 
@@ -140,7 +140,7 @@
 		}
 
 		else {
-			header("Location: /RocketSensorMVC/controller/faq.php");
+			header("Location: /RocketSensorMVC/index.php?section=faq");
 		}
 	}
 
@@ -152,17 +152,17 @@
 				}
 
 				else {
-					header("Location: /RocketSensorMVC/controller/faq.php?page=admin&action=1");
+					header("Location: /RocketSensorMVC/index.php?section=faq&page=admin&action=1");
 				}
 			}
 
 			else {
-				header("Location: /RocketSensorMVC/controller/faq.php?page=admin&action=1");
+				header("Location: /RocketSensorMVC/index.php?section=faq&page=admin&action=1");
 			}
 		}
 
 		else {
-			header("Location: /RocketSensorMVC/controller/faq.php");
+			header("Location: /RocketSensorMVC/index.php?section=faq");
 		}
 	}
 
@@ -170,21 +170,21 @@
 		if ($_SESSION['role'] == "Administrateur") {
 			if (isset($_GET['id'])) {
 				if (ajouterReponse($_POST['question'], $_POST['reponse'], $_GET['id'])) {
-					header("Location: /RocketSensorMVC/controller/faq.php?page=admin&action=2");
+					header("Location: /RocketSensorMVC/index.php?section=faq&page=admin&action=2");
 				}
 
 				else {
-					header("Location: /RocketSensorMVC/controller/faq.php?page=admin&action=1");
+					header("Location: /RocketSensorMVC/index.php?section=faq&page=admin&action=1");
 				}
 			}
 
 			else {
-				header("Location: /RocketSensorMVC/controller/faq.php?page=admin&action=1");
+				header("Location: /RocketSensorMVC/index.php?section=faq&page=admin&action=1");
 			}
 		}
 
 		else {
-			header("Location: /RocketSensorMVC/controller/faq.php?page=admin&action=1");
+			header("Location: /RocketSensorMVC/index.php?section=faq&page=admin&action=1");
 		}
 	}
 
@@ -192,21 +192,21 @@
 		if ($_SESSION['role'] == "Administrateur") {
 			if (isset($_GET['id'])) {
 				if (supprimerQuestion($_GET['id'])) {
-					header("Location: /RocketSensorMVC/controller/faq.php?page=admin&action=3");
+					header("Location: /RocketSensorMVC/index.php?section=faq&page=admin&action=3");
 				}
 
 				else {
-					header("Location: /RocketSensorMVC/controller/faq.php?page=admin&action=1");
+					header("Location: /RocketSensorMVC/index.php?section=faq&page=admin&action=1");
 				}
 			}
 
 			else {
-				header("Location: /RocketSensorMVC/controller/faq.php?page=admin&action=1");
+				header("Location: /RocketSensorMVC/index.php?section=faq&page=admin&action=1");
 			}
 		}
 
 		else {
-			header("Location: /RocketSensorMVC/controller/faq.php");
+			header("Location: /RocketSensorMVC/index.php?section=faq");
 		}
 	}
 
@@ -218,17 +218,17 @@
 				}
 
 				else {
-					header("Location: /RocketSensorMVC/controller/faq.php?page=admin&action=1");
+					header("Location: /RocketSensorMVC/index.php?section=faq&page=admin&action=1");
 				}
 			}
 
 			else {
-				header("Location: /RocketSensorMVC/controller/faq.php?page=admin&action=1");
+				header("Location: /RocketSensorMVC/index.php?section=faq&page=admin&action=1");
 			}
 		}
 
 		else {
-			header("Location: /RocketSensorMVC/controller/faq.php");
+			header("Location: /RocketSensorMVC/index.php?section=faq");
 		}
 	}
 
@@ -236,21 +236,21 @@
 		if ($_SESSION['role'] == "Administrateur") {
 			if (isset($_GET['id'])) {
 				if (modifierFaq($_POST['question'], $_POST['reponse'], $_GET['id'])) {
-					header("Location: /RocketSensorMVC/controller/faq.php?action=4");
+					header("Location: /RocketSensorMVC/index.php?section=faq&action=4");
 				}
 
 				else {
-					header("Location: /RocketSensorMVC/controller/faq.php?action=1");
+					header("Location: /RocketSensorMVC/index.php?section=faq&action=1");
 				}
 			}
 
 			else {
-				header("Location: /RocketSensorMVC/controller/faq.php?action=1");
+				header("Location: /RocketSensorMVC/index.php?section=faq&action=1");
 			}
 		}
 
 		else {
-			header("Location: /RocketSensorMVC/controller/faq.php");
+			header("Location: /RocketSensorMVC/index.php?section=faq");
 		}
 	}
 

@@ -1,60 +1,57 @@
 <?php
-	session_start();
 
 	require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/model/testsModel.php");
 
-	if (isset($_GET['page'])) {
-		if ($_GET['page'] == "test") {
-			test();
-		}
+	function tests() {
+		if (isset($_GET['page'])) {
+			if ($_GET['page'] == "test") {
+				test();
+			}
 
-		elseif ($_GET['page'] == "eleve") {
-			listeTests();
-		}
+			elseif ($_GET['page'] == "admin") {
+				listeTestsAdmin();
+			}
 
-		elseif ($_GET['page'] == "admin") {
-			listeTestsAdmin();
-		}
+			elseif ($_GET['page'] == "ajouter") {
+				testAjouter();
+			}
 
-		elseif ($_GET['page'] == "ajouter") {
-			testAjouter();
-		}
+			elseif ($_GET['page'] == "ajouterTraitement") { 
+				testAjouterTraitement();
+			}
 
-		elseif ($_GET['page'] == "ajouterTraitement") { 
-			testAjouterTraitement();
-		}
+			elseif ($_GET['page'] == "modifier") {
+				testModifier();
+			}
 
-		elseif ($_GET['page'] == "modifier") {
-			testModifier();
-		}
+			elseif ($_GET['page'] == "modifierTraitement") {
+				testModifierTraitement();
+			}
 
-		elseif ($_GET['page'] == "modifierTraitement") {
-			testModifierTraitement();
-		}
+			elseif ($_GET['page'] == "supprimer") {
+				testSupprimer();
+			}
 
-		elseif ($_GET['page'] == "supprimer") {
-			testSupprimer();
-		}
+			elseif ($_GET['page'] == "supprimerTraitement") { 
+				testSupprimerTraitement();
+			}
 
-		elseif ($_GET['page'] == "supprimerTraitement") { 
-			testSupprimerTraitement();
-		}
+			elseif ($_GET['page'] == "score") {
+				testScore();
+			}
 
-		elseif ($_GET['page'] == "score") {
-			testScore();
-		}
+			elseif ($_GET['page'] == "resultats") {
+				resultatsTests();
+			}
 
-		elseif ($_GET['page'] == "resultats") {
-			resultatsTests();
+			else {
+				listeTests();
+			}
 		}
 
 		else {
 			listeTests();
 		}
-	}
-
-	else {
-		listeTests();
 	}
 
 
@@ -77,9 +74,11 @@
 				require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/tests/testsListe.php");
 			}
 		}
+
 		elseif ($_SESSION['role'] == "Administrateur") {
-		 	header("Location: /RocketSensorMVC/controller/tests.php?page=admin");
+		 	header("Location: /RocketSensorMVC/index.php?section=tests&page=admin");
 		} 
+		
 		else {
 			header("Location: /RocketSensorMVC/index.php");
 		}
@@ -120,7 +119,7 @@
 		}
 
 		else {
-			header("Location: /RocketSensorMVC/controller/tests.php");
+			header("Location: /RocketSensorMVC/index.php?section=tests");
 		}
 	}
 
@@ -138,7 +137,7 @@
 		}
 
 		else {
-			header("Location: /RocketSensorMVC/controller/tests.php?action=1");
+			header("Location: /RocketSensorMVC/index.php?section=tests&action=1");
 		}
 
 		//EVENTUELLEMENT VERIFIER QUE LE TEST EXISTE BIEN DANS LA BDD
@@ -150,17 +149,17 @@
 		}
 
 		else {
-			header("Location: /RocketSensorMVC/controller/tests.php");
+			header("Location: /RocketSensorMVC/index.php?section=tests");
 		}
 	}
 
 	function testAjouterTraitement() {
 		if (ajouterTest($_POST['nom'], $_POST['description'], $_POST['capteur'], $_POST['duree'], $_POST['deroulement'])){
-			header("Location: /RocketSensorMVC/controller/tests.php?page=admin&action=1");
+			header("Location: /RocketSensorMVC/index.php?section=tests&page=admin&action=1");
 		}
 
 		else {
-			header("Location: /RocketSensorMVC/controller/tests.php?page=admin&action=3");
+			header("Location: /RocketSensorMVC/index.php?section=tests&page=admin&action=3");
 		}
 	}
 
@@ -178,21 +177,21 @@
 		}
 
 		else {
-			header("Location: /RocketSensorMVC/controller/tests.php");
+			header("Location: /RocketSensorMVC/index.php?section=tests");
 		}
 	}
 
 	function testModifierTraitement() {
 		if (isset($_GET['id'])) {
 			if (modifierTest($_POST['nom'], $_POST['description'], $_POST['capteur'], $_POST['duree'], $_POST['deroulement'], $_GET['id'])){
-				header("Location: /RocketSensorMVC/controller/tests.php?page=admin&action=2");
+				header("Location: /RocketSensorMVC/index.php?section=tests&page=admin&action=2");
 			}
 			else {
-				header("Location: /RocketSensorMVC/controller/tests.php?page=admin&action=3");
+				header("Location: /RocketSensorMVC/index.php?section=tests&page=admin&action=3");
 			}
 		}
 		else {
-			header("Location: /RocketSensorMVC/controller/tests.php?page=admin&action=3");
+			header("Location: /RocketSensorMVC/index.php?section=tests&page=admin&action=3");
 		}
 	}
 
@@ -203,17 +202,17 @@
 		}
 
 		else {
-			header("Location: /RocketSensorMVC/controller/tests.php");
+			header("Location: /RocketSensorMVC/index.php?section=tests");
 		}
 	}
 
 	function testSupprimerTraitement() {
 		if (supprimerTest($_POST['nom'])) {
-			header("Location: /RocketSensorMVC/controller/tests.php?page=admin&action=4");
+			header("Location: /RocketSensorMVC/index.php?section=tests&page=admin&action=4");
 		}
 
 		else {
-			header("Location: /RocketSensorMVC/controller/tests.php?page=admin&action=3");
+			header("Location: /RocketSensorMVC/index.php?section=tests&page=admin&action=3");
 		}
 	}
 
@@ -226,16 +225,16 @@
 				}
 				
 				else {
-					header("Location: /RocketSensorMVC/controller/tests.php?action=3");
+					header("Location: /RocketSensorMVC/index.php?section=tests&action=3");
 				}
 			}
 			else {
-				header("Location: /RocketSensorMVC/controller/tests.php?action=3");
+				header("Location: /RocketSensorMVC/index.php?section=tests&action=3");
 			}
 		}
 
 		else {
-			header("Location: /RocketSensorMVC/controller/tests.php?action=3");
+			header("Location: /RocketSensorMVC/index.php?section=tests&action=3");
 		}
 	}
 
@@ -255,12 +254,12 @@
 						}
 
 						else {
-							header("Location: /RocketSensorMVC/controller/tests.php?page=resultats&action=1");
+							header("Location: /RocketSensorMVC/index.php?section=tests&page=resultats&action=1");
 						}	
 					}
 
 					else {
-						header("Location: /RocketSensorMVC/controller/tests.php?page=resultats&action=1");
+						header("Location: /RocketSensorMVC/index.php?section=tests&page=resultats&action=1");
 					}
 				}
 
@@ -270,7 +269,7 @@
 			}
 
 			else {
-				header("Location: /RocketSensorMVC/controller/tests.php?page=resultats&action=1");
+				header("Location: /RocketSensorMVC/index.php?section=tests&page=resultats&action=1");
 			}
 		}
 
@@ -286,11 +285,11 @@
 										require($_SERVER['DOCUMENT_ROOT']."/RocketSensorMVC/view/tests/resultatsAffichage.php");
 									}
 									else {
-										header("Location: /RocketSensorMVC/controller/tests.php?page=resultats&action=1");
+										header("Location: /RocketSensorMVC/index.php?section=tests&page=resultats&action=1");
 									}	
 								}
 								else {
-									header("Location: /RocketSensorMVC/controller/tests.php?page=resultats&action=1");
+									header("Location: /RocketSensorMVC/index.php?section=tests&page=resultats&action=1");
 								}
 							}
 							else {
@@ -298,19 +297,19 @@
 							}
 						}
 						else {
-							header("Location: /RocketSensorMVC/controller/tests.php?page=resultats&action=1");
+							header("Location: /RocketSensorMVC/index.php?section=tests&page=resultats&action=1");
 						}
 					}
 					else {
-						header("Location: /RocketSensorMVC/controller/tests.php?page=resultats&action=1");
+						header("Location: /RocketSensorMVC/index.php?section=tests&page=resultats&action=1");
 					}
 				}
 				else {
-					header("Location: /RocketSensorMVC/controller/tests.php?page=resultats&action=1");
+					header("Location: /RocketSensorMVC/index.php?section=tests&page=resultats&action=1");
 				}
 			}
 			else {
-				header("Location: /RocketSensorMVC/controller/tests.php?page=resultats&action=1");
+				header("Location: /RocketSensorMVC/index.php?section=tests&page=resultats&action=1");
 			}
 		}
 	}

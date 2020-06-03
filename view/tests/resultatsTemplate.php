@@ -20,7 +20,7 @@
     <?php } ?>
 
     <!-- Formulaire permettant de choisir le test pour lequel on veut voir les resultats -->
-    <form id="formulaire" action="/RocketSensorMVC/controller/tests.php?page=resultats<?php if (isset($_GET['id'])) { echo '&id='.$_GET['id']; } ?>" method="post">
+    <form id="formulaire" action="/RocketSensorMVC/index.php?section=tests&page=resultats<?php if (isset($_GET['id'])) { echo '&id='.$_GET['id']; } ?>" method="post">
       <table>
         <tr>
            <td class="champ_profil"><label for="id">Choisir un test</label></td>
