@@ -155,9 +155,13 @@
 	}
 
 	function testAjouterTraitement() {
-		ajouterTest($_POST['nom'], $_POST['description'], $_POST['capteur'], $_POST['duree'], $_POST['deroulement']);
+		if (ajouterTest($_POST['nom'], $_POST['description'], $_POST['capteur'], $_POST['duree'], $_POST['deroulement'])){
+			header("Location: /RocketSensorMVC/controller/tests.php?page=admin&action=1");
+		}
 
-		header("Location: /RocketSensorMVC/controller/tests.php?page=admin&action=1");
+		else {
+			header("Location: /RocketSensorMVC/controller/tests.php?page=admin&action=3");
+		}
 	}
 
 	function testModifier(){
@@ -180,14 +184,16 @@
 
 	function testModifierTraitement() {
 		if (isset($_GET['id'])) {
-			modifierTest($_POST['nom'], $_POST['description'], $_POST['capteur'], $_POST['duree'], $_POST['deroulement'], $_GET['id']);
-			header("Location: /RocketSensorMVC/controller/tests.php?page=admin&action=2");
+			if (modifierTest($_POST['nom'], $_POST['description'], $_POST['capteur'], $_POST['duree'], $_POST['deroulement'], $_GET['id'])){
+				header("Location: /RocketSensorMVC/controller/tests.php?page=admin&action=2");
+			}
+			else {
+				header("Location: /RocketSensorMVC/controller/tests.php?page=admin&action=3");
+			}
 		}
-
 		else {
 			header("Location: /RocketSensorMVC/controller/tests.php?page=admin&action=3");
 		}
-
 	}
 
 	function testSupprimer() {

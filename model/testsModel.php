@@ -35,6 +35,8 @@
 		    'capteur' => $capteur,
 		    'duree' => $duree,
 			'deroulement' => $deroulement));
+
+    	return $req;
 	}
 
 	function modifierTest($nom, $description, $capteur, $duree, $deroulement, $id) {
@@ -48,6 +50,8 @@
 		    'duree' => $duree,
 			'deroulement' => $deroulement,
 			'id' => $id));
+
+	    return $req;
 	}
 
 	function getTestsNoms() {
