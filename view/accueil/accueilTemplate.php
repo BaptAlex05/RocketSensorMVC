@@ -52,14 +52,14 @@
 					<?= $liens_utiles ?>
 
 					<div class="accueil_lien_utile">
-						<a href="faq.php">
+						<a href="/RocketSensorMVC/controller/faq.php">
 							<p><img src="/RocketSensorMVC/public/images/faq.png"></p>
 							<h3>FAQ</h3>
 						</a>
 					</div>
 
 					<div class="accueil_lien_utile">
-						<a href="contact.php">
+						<a href="/RocketSensorMVC/controller/contact.php">
 							<p><img src="/RocketSensorMVC/public/images/contact.png"></p>
 							<h3>Nous contacter</h3>
 						</a>

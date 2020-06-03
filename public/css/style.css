@@ -14,6 +14,10 @@ a {
 	cursor: pointer;
 }
 
+.line_pointer {
+	cursor: pointer;
+}
+
 h1 {
 	font-size: 2em;
 	color: #272727;
@@ -461,6 +465,10 @@ textarea {
 table {
     border-collapse: collapse;
     margin: auto;
+}
+
+#tableau_liste {
+	width: 75%;
 }
 
 #tableau_liste th {

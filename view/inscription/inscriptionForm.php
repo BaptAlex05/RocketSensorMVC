@@ -57,7 +57,7 @@
 			<p id="champ_auto-ecole">
 				<label for="autoecole">Auto-école (Facultatif)</label><br/>
 				<select name="autoecole" id="formulaire_autoecole" required>
-					<option value="-" selected> - </option>
+					<option value="0" selected> - </option>
 					<?php while($autoecole = $autoecoles->fetch()) { ?>
 	          			<option value="<?= $autoecole['id'] ?>"><?= htmlspecialchars($autoecole['nom']) ?> - <?= htmlspecialchars($autoecole['ville']) ?></option>
           			<?php } ?>

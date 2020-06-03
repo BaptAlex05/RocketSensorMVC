@@ -1,13 +1,13 @@
 <?php ob_start(); ?>
 
 	<div class="accueil_lien_utile">
-		<a href="inscription.php">
+		<a href="/RocketSensorMVC/controller/inscription.php">
 			<p><img src="/RocketSensorMVC/public/images/register.png"></p>
 			<h3>S'inscrire</h3>
 		</a>
 	</div>
 
-	<div class="accueil_lien_utile">
+	<div class="/RocketSensorMVC/controller/connexion.php">
 		<a href="connexion.php">
 			<p><img src="/RocketSensorMVC/public/images/login.png"></p>
 			<h3>Se connecter</h3>

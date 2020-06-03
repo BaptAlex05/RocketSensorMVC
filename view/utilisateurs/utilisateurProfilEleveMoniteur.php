@@ -8,4 +8,4 @@
 
 <?php $autoecole = ob_get_clean(); ?>
 
-<?php require("profilTemplate.php"); ?>
+<?php require("utilisateurProfilTemplate.php"); ?>

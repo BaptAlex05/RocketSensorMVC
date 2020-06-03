@@ -60,13 +60,10 @@
 		$prenom = htmlspecialchars($_POST['prenom']);
 		$datenaissance = htmlspecialchars($_POST["datenaissance"]);
 		$mail = htmlspecialchars($_POST['mail']);
+		$autoecole = htmlspecialchars($_POST['autoecole']);
 		$motdepasse = htmlspecialchars($_POST['motdepasse']);
 		$motdepasse_bis = htmlspecialchars($_POST['motdepasse_bis']);
 
-
-		if ($_POST['autoecole'] == "-") {
-			$autoecole = NULL;
-		}
 
 		if ($motdepasse == $motdepasse_bis) {
 			$motdepasse_hash = password_hash($motdepasse,PASSWORD_DEFAULT);

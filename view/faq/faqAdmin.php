@@ -1,6 +1,7 @@
 <?php
 	$title = "FAQ"; 
 	$page_on = 'faq';
+	$script = "suppressionFaq";
 ?>
 
 <?php ob_start(); ?>
@@ -27,7 +28,7 @@
 						<a href="/RocketSensorMVC/controller/faq.php?page=reponse&id=<?=htmlspecialchars($question['id']);?>">Répondre et publier</a>
 					</div>
 					<div class="bouton">
-						<a href="/RocketSensorMVC/controller/faq.php?page=supprimer&id=<?=htmlspecialchars($question['id']);?>">Supprimer</a>
+						<a id = "supprimer"href="/RocketSensorMVC/controller/faq.php?page=supprimer&id=<?=htmlspecialchars($question['id']);?>">Supprimer</a>
 					</div>
 				</div>
 			</div>

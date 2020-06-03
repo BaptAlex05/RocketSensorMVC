@@ -14,4 +14,4 @@
 
 <?php $autoecole = ob_get_clean(); ?>
 
-<?php require("profilModifierTemplate.php"); ?>
+<?php require("utilisateurProfilModifierTemplate.php"); ?>

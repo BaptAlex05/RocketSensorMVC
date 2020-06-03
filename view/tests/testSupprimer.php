@@ -1,6 +1,7 @@
 <?php
 	$title = "Supprimer un test"; 
 	$page_on = 'supprimerTest';
+  $script = "suppressionTest";
 ?>
 
 <?php ob_start(); ?>
@@ -26,7 +27,7 @@
          
         </table>
           <div class="bouton">
-              <input type="submit" value="Supprimer" /> 
+              <input id = "supprimer" type="submit" value="Supprimer" /> 
               <a href = '/RocketSensorMVC/controller/tests.php?page=admin'>Annuler</a>   
           </div>
         </form>    

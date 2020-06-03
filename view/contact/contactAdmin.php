@@ -1,6 +1,7 @@
 <?php
 	$title = "Contact"; 
 	$page_on = 'contact';
+	$script = "suppressionContact";
 ?>
 
 <?php ob_start(); ?>
