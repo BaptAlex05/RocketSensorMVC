@@ -12,7 +12,7 @@
 			<p class="alerte"><?= $alerte ?></p>
 		<?php } ?>
 
-		<p id="faq_connectez-vous">"Pour pouvoir poser une question sur la FAQ, veuillez <a href="/RocketSensorMVC/index.php?section=connexion">vous connecter</a>. Pour toute question ou demande personnelle, merci d'utiliser le <a href="/rocketSensorMVC/index.php?section=contact">formulaire de contact</a>."</p>
+		<p id="faq_connectez-vous">Pour pouvoir poser une question sur la FAQ, veuillez <a href="/RocketSensorMVC/index.php?section=connexion">vous connecter</a>. Pour toute question ou demande personnelle, merci d'utiliser le <a href="/rocketSensorMVC/index.php?section=contact">formulaire de contact</a>.</p>
 
 
 		<?php while ($question = $questions->fetch()) { ?>
